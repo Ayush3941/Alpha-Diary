@@ -1,0 +1,96 @@
+{% extends 'layout.html' %}
+{% load static %}
+
+{% block main %}
+<h2>Overview</h2>
+<div class="row">
+    <p>
+        Welcome to your Overview tab, the hub for your daily financial and productivity insights. Track your tasks seamlessly with the built-in to-do list while staying on top of your spending using the intuitive daily calendar-based expense tracker. Simplify your day and take charge of your goals, all in one place!
+    </p>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 me-1">
+        <!-- Todo List Card -->
+        <div class="card shadow p-4 rounded-3">
+            <h3 class="text-center mb-4">Todo List</h3>
+            <form method="POST" action="{% url 'add_task' %}" class="d-flex align-items-center mb-4">
+                {% csrf_token %}
+                <input 
+                    id="todo-input" 
+                    type="text" 
+                    name="text" 
+                    class="form-control rounded-pill me-2 shadow-sm" 
+                    placeholder="Write anything and hit enter to add" 
+                    autocomplete="off">
+                <button class="btn btn-primary rounded-pill shadow-sm">
+                    ADD
+                </button>
+            </form>
+
+            <!-- Task List -->
+            <ul id="todo-list m-1" class="list-group">
+    {% for task in tasks %}
+        <li class="todo list-group-item d-flex align-items-center justify-content-between rounded-3 m-2 shadow-sm">
+            <div class="d-flex align-items-center">
+                <input 
+                    type="checkbox" 
+                    id="todo-{{ task.id }}" 
+                    class="form-check-input me-3" 
+                    {% if task.completed %}checked{% endif %}
+                    onchange="toggleTask({{ task.id }})">
+                <label for="todo-{{ task.id }}" class="todo-text mb-0">
+                    {{ task.text }}
+                </label>
+            </div>
+            
+            <!-- Delete Task Button (Wrapped in Form for CSRF Token) -->
+            <form method="POST" action="{% url 'delete_task' task.id %}" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-danger btn-sm delete-button">
+                    Delete
+                </button>
+            </form>
+        </li>
+    {% endfor %}
+</ul>
+
+        </div>
+    </div>
+
+    <div class="col-sm-5 m-1">
+        <!-- Google Calendar Embed -->
+        <iframe src="https://calendar.google.com/calendar/embed?src=8df8775f3a87b898fae4fb5c34d22858e5d08fabcd9191c53758b4347866dc47%40group.calendar.google.com&ctz=Asia%2FKolkata" style="border: 0" width="100%" height="300vh" frameborder="1" scrolling="no"></iframe>
+    </div>
+</div>
+
+{% endblock %}
+
+<!-- JavaScript for AJAX functionality -->
+<script>
+    function toggleTask(taskId) {
+        fetch(`/toggle/${taskId}/`, { 
+            method: 'POST', 
+            headers: { 'X-CSRFToken': '{{ csrf_token }}' } 
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                location.reload();
+            }
+        });
+    }
+
+    function deleteTask(taskId) {
+        fetch(`/delete_task/${taskId}/`, { 
+            method: 'POST', 
+            headers: { 'X-CSRFToken': '{{ csrf_token }}' } 
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === 'success') {
+                location.reload();
+            }
+        });
+    }
+</script>

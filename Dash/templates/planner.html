@@ -1,0 +1,2090 @@
+{% load static %}
+{% load pwa %}
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://static.moneysmart.gov.au" crossorigin>
+    <link rel="preconnect" href="https://files.moneysmart.gov.au" />
+    <link rel="dns-prefetch" href="https://static.moneysmart.gov.au" />
+    <link rel="dns-prefetch" href="https://files.moneysmart.gov.au" />
+    <link rel="preload" as="font" href="https://static.moneysmart.gov.au/nextgen/fonts/regular-regular.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="https://static.moneysmart.gov.au/nextgen/fonts/montserrat-bold.woff2" type="font/woff2" crossorigin="anonymous">
+    <link rel="preload" as="font" href="https://static.moneysmart.gov.au/nextgen/fonts/montserrat-regular.woff2" type="font/woff2" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="{% static 'manifest.json' %}">
+    <link rel="icon" href="{% static 'images/icon-192x192.png' %}">
+    <title>Budget planner</title>
+    <link rel="shortcut icon" href="{% static 'assets/images/favicon.png' %}">
+    <link rel="canonical" href="https://moneysmart.gov.au/budgeting/budget-planner"/>
+    <!-- Google Tag Manager -->
+    <style>
+        
+    </style>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-K663FCG');
+
+
+
+
+
+    </script>
+    <!-- End Google Tag Manager -->
+    
+        <meta name="description" content="Our free online budget planner helps you track, plan and prioritise where your money is going."/>
+	<meta property="og:title" content="Budget planner - Moneysmart.gov.au" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://moneysmart.gov.au/budgeting/budget-planner" />
+	<meta property="og:description" content="Our free online budget planner helps you track, plan and prioritise where your money is going." />
+	<meta property="og:image" content="https://files.moneysmart.gov.au/media/qe3g2ibe/budgeting.jpg" />
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:site" content="@moneysmartteam" />
+	<meta name="twitter:title" content="Budget planner - Moneysmart.gov.au" />
+	<meta name="twitter:description" content="Our free online budget planner helps you track, plan and prioritise where your money is going." />
+	<meta name="twitter:image" content="https://files.moneysmart.gov.au/media/qe3g2ibe/budgeting.jpg" />
+   
+    <meta name="theme-color" content="#0047F5">
+    <link rel="manifest" href="https://static.moneysmart.gov.au/nextgen/img/favicon/manifest.json">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="Moneysmart">
+    <meta name="apple-mobile-web-app-title" content="Moneysmart">
+    <meta name="msapplication-starturl" content="/">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <meta name="apple-mobile-web-app-title" content="Moneysmart">
+    <meta name="application-name" content="Moneysmart">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-config" content="https://static.moneysmart.gov.au/nextgen/img/favicon/browserconfig.xml">
+    <meta name="msapplication-TileImage" content="https://static.moneysmart.gov.au/nextgen/img/favicon/ms-icon-144x144.png">
+    <link href="https://static.moneysmart.gov.au/nextgen/css/main-20240209.css" rel="stylesheet" media="all">
+<script src="https://static.moneysmart.gov.au/nextgen/js/moneysmart-20240627.js"></script>
+{% progressive_web_app_meta %}
+</head>
+
+<body class="pagetype-calculator bankingandbudgeting">
+
+
+<div class="container mt-5">
+        <form action="/index" method="post">
+            {% csrf_token %}
+                <button type="button" class="btn btn-bubbly" onclick="window.history.back();" style="
+                    background: linear-gradient(135deg, #6a11cb, #2575fc);
+                    color: white;
+                    border: none;
+                    border-radius: 50px;
+                    padding: 10px 30px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06);
+                    transition: all 0.3s ease-in-out;
+                " onmouseover="this.style.background='linear-gradient(135deg, #2575fc, #6a11cb)'; this.style.transform='scale(1.05)'; this.style.boxShadow='0 6px 10px rgba(0, 0, 0, 0.15), 0 2px 5px rgba(0, 0, 0, 0.1)';" 
+                onmouseout="this.style.background='linear-gradient(135deg, #6a11cb, #2575fc)'; this.style.transform='scale(1)'; this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.06)';"
+                onmousedown="this.style.transform='scale(0.95)'; this.style.boxShadow='0 2px 4px rgba(0, 0, 0, 0.2), 0 1px 2px rgba(0, 0, 0, 0.15)';"
+                onmouseup="this.style.transform='scale(1)';">
+                    Go Back to Alpha Diary
+                </button>
+
+            </div>
+        </form>
+    </div>
+
+
+
+
+
+
+
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-K663FCG"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <a href="#mainContent" class="offScreen">Skip to main content</a>
+
+
+    
+<main id="mainContent">
+	
+	<div id="content">
+<p>This budget planner enables you to:</p>
+<ul>
+<li>work out where your money is going</li>
+<li>create your own custom items</li>
+<li>change the currency </li>
+</ul>
+<!-- Begin app -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha384-vk5WoKIaW/vJyUAd9n/wmopsmNhiy+L2Z+SBxGYnUkunIxVxAv/UtMOhba/xskxh" crossorigin="anonymous"></script>
+<script src="https://static.moneysmart.gov.au/nextgen/js/highcharts.js"></script>
+
+<style type="text/css">@charset "UTF-8";@media only print{#budgetPlanner{background-color:#fff!important;border:none!important}#budgetPlanner #summary,#budgetPlanner .item{page-break-inside:avoid}#budgetPlanner .item .custom{display:none!important}#budgetPlanner .category[data-has-value="1"]{display:block!important}#budgetPlanner .item[data-has-value="1"]{display:flex!important}#budgetPlanner:not(.printall) .category[data-has-value="0"],#budgetPlanner:not(.printall) .item[data-has-value="0"]{display:none!important}#budgetPlanner .input .category>h3{padding-right:1rem!important}#budgetPlanner .input .toggle:after{display:none!important}#budgetPlanner .input #summary>h3{padding-right:1rem!important}#budgetPlanner.printall .category{display:block!important}#budgetPlanner.printall .item{display:flex!important}#budgetPlanner.printall .item[data-has-value="0"] select{visibility:hidden}#budgetPlanner .item{padding-top:.5rem;padding-bottom:.5rem}#budgetPlanner .item input{padding:.5rem}#budgetPlanner .item select{padding-top:.5rem!important;padding-bottom:.5rem!important;border:0!important;background:none!important}}#budgetPlanner{background-color:#f5f5f5;padding:1.5rem 0 0;margin:0 0 2rem;border:1px solid #e1e1e1}#budgetPlanner h2{padding:0 2.5rem 0 1.5rem;margin:0;line-height:2rem}#budgetPlanner h3{font-size:1.2rem;font-family:Montserrat,sans-serif;font-weight:400}#budgetPlanner label{font-size:.85rem;color:#333}#budgetPlanner input[placeholder="click to add item label"]{width:14rem}#budgetPlanner input[type=number],#budgetPlanner input[type=text]{border-color:#d0d0d0}#budgetPlanner input.name{border-color:#fff;font-size:.85rem;color:#333}#budgetPlanner select{border:.05rem solid #d0d0d0!important}#budgetPlanner .hide{display:none}#budgetPlanner .header{position:relative}#budgetPlanner .header:after{content:"";display:block;height:.3rem;background:transparent;background:linear-gradient(180deg,hsla(0,0%,39.2%,.25) 0,hsla(0,0%,39.2%,0))}#budgetPlanner .header h2{margin-bottom:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-size:1.2rem}#budgetPlanner .header p{margin:0;padding:0 1.5rem}#budgetPlanner .header span{padding-left:1.5rem;font-size:.8rem}#budgetPlanner .input{clear:both}#budgetPlanner .input #income>h3:before{background-color:#000}#budgetPlanner .input #home-utilities>h3:before{background-color:#0146f5}#budgetPlanner .input #insurance-financial>h3:before{background-color:#1f1247}#budgetPlanner .input #groceries>h3:before{background-color:#383a7b}#budgetPlanner .input #personal-medical>h3:before{background-color:#c0c6e2}#budgetPlanner .input #entertainment-eatout>h3:before{background-color:#ace8fa}#budgetPlanner .input #transport-auto>h3:before{background-color:#c3eefa}#budgetPlanner .input #children>h3:before{background-color:#a3bbf9}#budgetPlanner .input .category{border-top:solid #fafafa;border-width:1px;border-bottom:2px solid #e1e1e1}#budgetPlanner .input .category>h3{overflow:hidden;display:flex;margin:0;padding:1rem 2.5rem;background-color:#efefef;cursor:pointer;font-size:.9rem}@media screen and (min-width:28rem){#budgetPlanner .input .category>h3{font-size:1rem}}#budgetPlanner .input .category>h3>span{flex-grow:1;text-align:right}#budgetPlanner .input .category>h3:before{content:"";position:absolute;width:.75rem;height:.75rem;border-radius:2rem;margin-top:.4rem;left:1rem}#budgetPlanner .input .category .item{padding:.75rem;display:flex;border-bottom:1px dotted #999;align-items:center;justify-content:space-between;background-color:#fff}#budgetPlanner .input .category .item>label{width:15rem}#budgetPlanner .input .category .item .amount{width:8rem;margin-right:1rem}#budgetPlanner .input .category .item .total{width:6rem;text-align:right;margin-left:1rem}#budgetPlanner .input .category .item:last-child{border-bottom:none}#budgetPlanner .input .toggle{position:relative;padding-right:2.5rem;padding-left:2.5rem}#budgetPlanner .input .toggle:after{content:"";display:inline-block;width:.3rem;height:.3rem;transform:rotate(45deg);transform-origin:center;position:absolute;right:1rem;top:1.4rem;border-right:.1rem solid #a59fb5;border-bottom:.1rem solid #a59fb5}#budgetPlanner .input .toggle.open:after{transform:rotate(-135deg)}#budgetPlanner .input #summary{background-color:#fff}#budgetPlanner .input #summary #budgetPlannerResult hr{margin-bottom:0}#budgetPlanner .input #summary #budgetPlannerResult hr+p{margin-top:1.5rem}#budgetPlanner .input #summary #budgetPlannerResult .calendar{background-color:#f5f5f5;font-weight:700;padding:0 1rem 1rem}#budgetPlanner .input #summary #budgetPlannerResult .calendar span{width:100%;display:inline-block}@media screen and (min-width:40rem){#budgetPlanner .input #summary #budgetPlannerResult .calendar span{width:auto;margin-right:1rem}}#budgetPlanner .input #summary #budgetPlannerResult .calendar .innerCalendar{display:inline-block;margin-top:1rem}@media screen and (min-width:40rem){#budgetPlanner .input #summary #budgetPlannerResult .calendar .innerCalendar{margin-top:0}}#budgetPlanner .input #summary #budgetPlannerResult #calendarPicker{display:none;position:absolute;background-color:#fff;margin-top:.5rem;z-index:2}#budgetPlanner .input #summary #budgetPlannerResult #calendarPicker ul{list-style-type:none;margin:0;padding:0}#budgetPlanner .input #summary #budgetPlannerResult #calendarPicker ul li{border-bottom:1px solid #e1e1e1;font-weight:400;font-size:.8rem;position:relative}#budgetPlanner .input #summary #budgetPlannerResult #calendarPicker ul li a{text-decoration:none;display:block;padding:.5rem 3rem}#budgetPlanner .input #summary #budgetPlannerResult #calendarPicker ul li a:hover{background-color:#f5f5f5}#budgetPlanner .input #summary #budgetPlannerResult #calendarPicker ul li a:before{content:"";position:absolute;background-size:contain;background-repeat:no-repeat;width:1.2rem;height:1.2rem;left:.5rem;top:.5rem}#budgetPlanner .input #summary #budgetPlannerResult #calendarPicker ul li a#cal-apple:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg height='56.693' width='56.693' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M41.777 30.517c-.062-6.232 5.082-9.221 5.312-9.372-2.891-4.227-7.395-4.807-8.998-4.873-3.83-.389-7.477 2.256-9.42 2.256-1.939 0-4.941-2.199-8.117-2.143-4.178.062-8.029 2.43-10.179 6.17-4.339 7.527-1.11 18.682 3.118 24.791 2.067 2.986 4.532 6.346 7.766 6.223 3.117-.123 4.293-2.016 8.061-2.016s4.826 2.016 8.123 1.953c3.352-.061 5.477-3.043 7.527-6.041 2.373-3.469 3.35-6.828 3.408-6.998-.073-.034-6.534-2.509-6.601-9.95zM35.582 12.229c1.715-2.082 2.877-4.975 2.561-7.855-2.475.1-5.471 1.645-7.248 3.725-1.592 1.846-2.984 4.785-2.611 7.613 2.761.214 5.577-1.405 7.298-3.483z'/%3E%3C/svg%3E")}#budgetPlanner .input #summary #budgetPlannerResult #calendarPicker ul li a#cal-google:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg viewBox='0 0 128 128' xmlns='http://www.w3.org/2000/svg'%3E%3Cg clip-rule='evenodd'%3E%3Cpath fill='none' d='M0 0h128v128H0z'/%3E%3Cpath d='M27.585 64c0-4.157.69-8.143 1.923-11.881L7.938 35.648C3.734 44.183 1.366 53.801 1.366 64c0 10.191 2.366 19.802 6.563 28.332l21.558-16.503A37.86 37.86 0 0 1 27.585 64' fill='%23FBBC05' fill-rule='evenodd'/%3E%3Cpath d='M65.457 26.182c9.031 0 17.188 3.2 23.597 8.436L107.698 16C96.337 6.109 81.771 0 65.457 0 40.129 0 18.361 14.484 7.938 35.648l21.569 16.471a37.77 37.77 0 0 1 35.95-25.937' fill='%23EA4335' fill-rule='evenodd'/%3E%3Cpath d='M65.457 101.818a37.77 37.77 0 0 1-35.949-25.937L7.938 92.349C18.361 113.516 40.129 128 65.457 128c15.632 0 30.557-5.551 41.758-15.951L86.741 96.221c-5.777 3.639-13.052 5.597-21.284 5.597' fill='%2334A853' fill-rule='evenodd'/%3E%3Cpath d='M126.634 64c0-3.782-.583-7.855-1.457-11.636h-59.72v24.727h34.376c-1.719 8.431-6.397 14.912-13.092 19.13l20.474 15.828c11.766-10.92 19.419-27.188 19.419-48.049' fill='%234285F4' fill-rule='evenodd'/%3E%3C/g%3E%3C/svg%3E")}#budgetPlanner .input #summary #budgetPlannerResult #calendarPicker ul li a#cal-outlook:before{background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' x='0' y='0' viewBox='0 0 24 24' xml:space='preserve'%3E%3Cstyle%3E.st0{fill:%230072c6}%3C/style%3E%3Cg id='Outlook'%3E%3Cpath class='st0' d='M6.5 8C5.1 8 4 9.8 4 12s1.1 4 2.5 4S9 14.2 9 12 7.9 8 6.5 8z'/%3E%3Cpath class='st0' d='M13.4 0L.4 2.5c-.2 0-.4.3-.4.5v18c0 .2.2.4.4.5l13 2.5h.1c.3 0 .5-.2.5-.5V.5c0-.3-.2-.5-.6-.5.1 0 0 0 0 0zM6.5 17c-2 0-3.5-2.2-3.5-5s1.5-5 3.5-5S10 9.2 10 12s-1.5 5-3.5 5zM23.5 6h-8c-.3 0-.5.2-.5.5v4.8c0 .1.1.3.2.4l1.5 1.2c.2.1.4.1.6 0L23.8 8c.1-.1.2-.2.2-.4V6.5c0-.3-.2-.5-.5-.5z'/%3E%3Cpath class='st0' d='M23.7 9.7c-.2-.1-.4-.1-.5 0l-5.3 4c-.6.4-1.4.4-1.9 0l-.2-.2c-.2-.2-.5-.1-.7.1-.1 0-.1.1-.1.2v3.6c0 .3.2.5.5.5h8c.3 0 .5-.2.5-.5V10c0-.1-.1-.2-.3-.3z'/%3E%3C/g%3E%3C/svg%3E")}#budgetPlanner .input #summary>h3{overflow:hidden;display:flex;margin:0;padding:1rem 2.5rem 1rem 1rem;color:#fff;background-color:#0146f5}#budgetPlanner .input #summary>h3>span{flex-grow:1;text-align:right}#budgetPlanner .input #summary h4{margin:1.5rem 1rem;font-family:Montserrat,sans-serif}#budgetPlanner .input #summary ul{padding-right:1rem}#budgetPlanner .input #summary p{padding:0 1rem}#budgetPlanner .input #summary hr{max-width:none;border-top:.01rem solid #d8d8d8;margin:1.5rem 0}#budgetPlanner .input #summary .next-steps{background-color:#f5f5f5;padding-bottom:1rem;padding-top:1rem}#budgetPlanner .input #summary #chart{padding-right:.5rem}@media screen and (max-width:40em){#budgetPlanner{margin:2rem -1rem;border-left:none;border-right:none}#budgetPlanner .input .category .item{display:block}#budgetPlanner .input .category .item .amount{width:6rem;margin-bottom:1rem}#budgetPlanner .input .category .item select{margin-right:1rem}#budgetPlanner .input .category .item .total{margin-left:0}#budgetPlanner .header{display:block}}#overlay{display:none;position:fixed;background-color:rgba(0,0,0,.5);width:100%;height:100vh;top:0;left:0;z-index:1}.smartTip#autosave>p:first-child:before{content:""}#autosave .autosave-heading{display:flex;margin-left:4rem}#autosave .autosave-heading p:first-child{color:#0047f5;flex:1 1 auto}#autosave .switch{position:relative;display:inline-block;width:2.4rem;height:1.2rem;background-color:rgba(0,0,0,.25);border-radius:1.2rem;transition:left .3s;margin:0}#autosave .switch:before{content:"Off";position:absolute;top:1.1rem;left:0;transition:left .3s}#autosave .switch:after{content:"";position:absolute;width:1.1rem;height:1.1rem;border-radius:50%;background-color:#fff;top:1px;left:1px;transition:left .3s}#autosave .toggle-checkbox:checked+.switch:before{content:"On";left:1.2rem}#autosave .toggle-checkbox:checked+.switch:after{left:1.23rem}#autosave .toggle-checkbox:checked+.switch{background-color:#0047f5}#autosave .toggle-checkbox:focus+label{outline:none}#autosave .toggle-checkbox{opacity:0}#autosaveModal{display:none;position:fixed;width:100%;text-align:center;background-color:rgba(0,0,0,.8);color:#fff;top:0;left:0;height:100vh;z-index:1}#autosaveModal .inner{display:flex;height:9rem;flex-wrap:wrap;padding-top:3.5rem;background-color:#000;margin-top:20vh;margin-left:1rem;margin-right:1rem}#autosaveModal .inner .row100{flex-direction:row;flex-wrap:wrap;flex:0 0 96%;margin:0 2%}#autosaveModal .inner .row50{flex-direction:row;flex-wrap:wrap;flex:0 0 48%;padding:1%;text-align:right}#autosaveModal .inner .row50.left{text-align:left}#btnAutoSaveModalCancel{border-color:#ccc!important;border-width:.05rem!important;color:#484848!important;background-color:#fff!important}#btnAutoSaveModalCancel:focus,#btnAutoSaveModalCancel:hover{background-color:#0047f5!important;color:#fff!important}#btnAutoSaveModalRemove{background-color:#d56565!important;color:#fff!important;border-color:#ccc!important;border-width:.05rem!important}#btnAutoSaveModalRemove:focus,#btnAutoSaveModalRemove:hover{background-color:#0047f5!important;color:#fff!important}#removeAllContainer{display:none;text-align:right}#removeAllContainer #btnRemoveAll{background-color:#d56565;color:#fff;border-color:#676767;border-width:.05rem}#statusBar{z-index:2;opacity:0;position:fixed;bottom:.5rem;z-index:1;left:-.5rem;margin:1rem;width:calc(100% - 1rem);border-radius:.3rem;height:2rem;background-color:#1f1247;color:#bebebe;text-align:center;line-height:2rem;transition:opacity .5s ease-in-out}@media screen and (min-width:40rem){#statusBar{width:100%;max-width:40rem;left:50%;transform:translateX(-50%);margin:1rem 0}}#statusBar span{position:relative}#statusBar span:after{font-size:2.5rem;border-radius:5rem;min-width:1rem;color:#bebebe;display:inline-block;text-align:center;position:absolute;right:-1.5rem;top:.1rem;width:1rem;height:1rem;content:"✔";text-indent:-9999rem;background:transparent url(https://static.moneysmart.gov.au/nextgen/img/thick-tick-white.svg);background-position-x:center;background-position-y:center;background-repeat:no-repeat;background-size:.6rem;border:1px solid #bebebe}body:not(.using-mouse) #autosave .toggle-checkbox:focus+label,body:not(.using-mouse) #btnSettings:focus{outline:.2rem solid #ff9100!important}@media only print{.calcUserData #autosave,.calcUserData #btnSettings{display:none}}.calcUserData .loading{text-align:center}.calcUserData .header #btnSettings{position:absolute;right:0;top:0;text-indent:-9999px;min-width:auto;border:none;padding:0;width:8rem;height:3rem;border-radius:0;background-color:transparent}.calcUserData .header #btnSettings:focus,.calcUserData .header #btnSettings:hover{background-color:transparent}.calcUserData .header #btnSettings:before{content:"";position:absolute;right:1.5rem;top:1.2rem;width:2px;height:2px;margin-left:-1px;margin-top:-1px;background-color:#0047f5;border-radius:50%;box-shadow:0 0 0 2px #0047f5,0 11px 0 2px #0047f5,0 -11px 0 2px #0047f5}.calcUserData .settings-container{position:relative;background-color:#fff;text-align:right;padding:1rem 1.5rem}.calcUserData .settings-container p{margin-bottom:0}.calcUserData .settings-container #container-view,.calcUserData .settings-container #container-view #frequency{font-size:.9rem}@media screen and (min-width:28rem){.calcUserData .settings-container #container-view,.calcUserData .settings-container #container-view #frequency{font-size:1rem}}.calcUserData .settings-container .settingsChange{text-align:left;margin-bottom:1.25rem}.calcUserData .settings-container .inputLine{border-color:#fff #fff #222;padding:.5rem;width:100%;max-width:25rem;margin-bottom:1rem}.calcUserData .btnBasic{position:relative;margin:0;min-width:auto}.calcUserData .btnBasic,.calcUserData .btnBasic:hover{background-color:transparent;border-radius:0;color:#222;border:.05rem solid #d0d0d0!important;padding:.55rem .75rem}.calcUserData .btnBasic.btnFirst{margin-right:.5rem}@media screen and (min-width:28rem){.calcUserData .btnBasic.btnFirst{margin-left:1rem}}.calcUserData #txtBudgetDelete{width:100%;margin-bottom:1rem}@media screen and (min-width:28rem){.calcUserData #txtBudgetDelete{width:auto}}.calcUserData #deleteModal{display:none;position:absolute;width:100%;text-align:center;margin-left:-1.5rem;background-color:rgba(0,0,0,.8);color:#fff;top:0;height:18rem}.calcUserData #deleteModal .inner{display:flex;height:9rem;flex-wrap:wrap;padding-top:3.5rem}.calcUserData #deleteModal .inner .row100{flex-direction:row;flex-wrap:wrap;flex:0 0 100%}.calcUserData #deleteModal .inner .row50{flex-direction:row;flex-wrap:wrap;flex:0 0 48%;padding:1%;text-align:right}.calcUserData #deleteModal .inner .row50.left{text-align:left}.calcUserData #btnModalCancel{border-color:#ccc;border-width:.05rem;color:#484848;background-color:#fff}.calcUserData #btnModalDelete{background-color:#d56565;color:#fff;border-color:#ccc;border-width:.05rem}.calcUserData #btnCalcShare,.calcUserData #settingsDelete,.calcUserData #settingsNew,.calcUserData #settingsRename,.calcUserData #settingsShare{display:none}.calcUserData #settingsPopup{display:none;background-color:#fff;border:1px solid #e1e1e1;position:absolute;width:calc(100% - 2rem);margin:1rem;right:0;max-width:28rem;z-index:2;box-shadow:.1rem .2rem 1rem .15rem rgba(0,0,0,.3)}@media screen and (min-width:28rem){.calcUserData #settingsPopup{margin-top:.1rem}}.calcUserData #settingsPopup ul{list-style-type:none;margin:0;padding:0}.calcUserData #settingsPopup ul li{border-bottom:1px solid #e1e1e1;padding:.5rem 1rem .5rem 1.5rem;cursor:pointer}@media screen and (min-width:28rem){.calcUserData #settingsPopup ul li{padding-right:6rem}}.calcUserData #settingsPopup ul li:not(.disable):hover{background-color:#f5f5f5}.calcUserData #settingsPopup ul li.disable{color:#d3d3d3;cursor:not-allowed}.calcUserData #settingsPopup ul li.listMsg{cursor:default;font-size:.75rem;padding:.25rem 1rem .25rem 2.5rem;background-color:beige}.calcUserData #settingsPopup ul li.listMsg:before{position:absolute;left:.5rem;top:0;display:block;width:1.7rem;height:1.7rem;background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' width='67' height='69.41'%3E%3Cpath fill='%23FBFBFB' fill-opacity='0' d='M0 0h67v69H0z'/%3E%3Cdefs%3E%3Cpath id='a' d='M32.624 64.41c11.214 0 20.304-.686 20.304-1.535 0-.848-9.09-1.536-20.304-1.536-11.212 0-20.304.688-20.304 1.536-.001.85 9.091 1.535 20.304 1.535'/%3E%3C/defs%3E%3CclipPath id='b'%3E%3Cuse xlink:href='%23a' overflow='visible'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23b)'%3E%3Cdefs%3E%3Cpath id='c' d='M0 5h67v60H0z'/%3E%3C/defs%3E%3CclipPath id='d'%3E%3Cuse xlink:href='%23c' overflow='visible'/%3E%3C/clipPath%3E%3Cpath opacity='.5' clip-path='url(%23d)' fill='%2342BFC7' d='M7.319 56.339h50.608V69.41H7.319z'/%3E%3C/g%3E%3Cg%3E%3Cdefs%3E%3Cpath id='e' d='M36.613 47.583c1.177 0 2.129.079 2.129 1.257v.11c0 1.021-.732 1.205-1.694 1.241-3.955 1.215-4.542 6.031-4.542 6.031-.516-4.545-.87-5.344-3.098-6.043-.36-.029-.658-.116-.896-.259-.036-.009-.066-.019-.103-.027h.069c-.279-.181-.473-.452-.473-.943v-.11c0-1.178.953-1.257 2.13-1.257h6.478zm6.282-37.684c3.553 2.818 5.941 8.109 5.941 13.164 0 3.735-1.339 7.354-3.766 10.187a15.722 15.722 0 0 1-3.982 3.323 11.77 11.77 0 0 0-.864 3.021c-.151 1.104-.98 1.859-2.267 1.843-1.186-.017-2.37-.008-3.557-.004.141-.214.242-.455.242-.732v-9.988c0-.126-.04-.24-.071-.356.587-.153 1.029-.664 1.029-1.302 0-.755-.611-1.366-1.366-1.366h-1.918c-.753 0-1.367.611-1.367 1.366 0 .638.442 1.148 1.031 1.302-.032.116-.073.23-.073.356V40.7c0 .277.103.519.244.732-1.173-.002-2.347-.013-3.519.008-1.356.021-2.158-.799-2.317-1.942a11.597 11.597 0 0 0-.518-2.14c-1.888-.758-3.525-1.804-4.738-3.103-2.085-2.237-3.145-6.291-3.145-12.046 0-7.061 4.346-12.521 10.806-14.238.459-.148.915-.298 1.401-.416 2.203-.533 4.436-.486 6.542.017 2.237.259 4.401.876 6.232 2.327zM29.891 16.57a1.681 1.681 0 1 0-1.537-2.991c-2.708 1.391-3.684 3.605-3.786 3.854a1.683 1.683 0 0 0 1.553 2.323c.662 0 1.288-.392 1.556-1.039.005-.011.601-1.318 2.214-2.147zm6.722 27.505h-6.477c-1.177 0-2.13-.051-2.13-.821v-.075c0-.771.953-.821 2.13-.821h6.477c1.177 0 2.129.051 2.129.821v.075c0 .77-.952.821-2.129.821zm0 2.593h-6.477c-1.177 0-2.13-.047-2.13-.743v-.067c0-.695.953-.742 2.13-.742h6.477c1.177 0 2.129.047 2.129.742v.067c0 .696-.952.743-2.129.743zM17.046 34.636c.094.049.206.163.212.41.019.829-.555 1.318-1.016 1.71l-.075.064c-.296.253-.589.514-.879.778-.581.517-1.177 1.056-1.811 1.524-.053.037-.1.076-.143.114-.173.143-.364.302-.69.302-.057 0-.118-.006-.186-.018a.693.693 0 0 1-.461-.249.389.389 0 0 1-.075-.149c-.122-.477.615-1.169 1.382-1.84.113-.1.199-.175.24-.216.797-.823 1.549-1.598 2.556-2.185.342-.206.691-.384.946-.245zM15.019 6.659c.907.611 2.426 1.633 2.272 2.629l-.026.17-.168.026a1.736 1.736 0 0 1-.302.026c-.504 0-.823-.225-1.11-.424-.069-.047-.141-.098-.214-.145h-.005c-.232 0-.547-.255-1.448-1.076-.328-.302-.667-.613-.885-.772-.129-.096-.201-.133-.268-.169-.094-.05-.18-.095-.351-.229-.051-.041-.135-.09-.232-.147-.379-.226-.85-.507-.883-.891-.011-.118.015-.291.204-.456a.76.76 0 0 1 .426-.195h.002c.349-.052.681.193.939.375.062.045.124.087.18.124.25.155.452.269.644.375.283.157.551.306.913.564.082.059.19.132.312.215zm-3.12 15.136l.05.194c.034.293-.476.739-.57.788a.35.35 0 0 1-.24.028l.001-.002c-.001 0-.024.021-.041.033a1.838 1.838 0 0 1-.084.063h-.002c-.242.163-.652.122-1.161.051a4.404 4.404 0 0 0-.322-.035c-.582-.03-.971.06-1.357.141-.287.06-.564.118-.879.118-.351 0-.747-.071-1.252-.295-.553-.243-.559-.611-.535-.757.062-.377.499-.687 1.041-.735.379-.045.75.035 1.108.104.18.033.356.067.532.088.188.021.313.033.403.045.186.022.186.026.324 0 .088-.015.22-.036.448-.065l.06-.008c1.013-.139 1.324-.092 1.481.024.099.073.249.092.44.114.124.017.257.034.396.067l.159.039zm40.607 15.982c.768.67 1.506 1.363 1.382 1.838a.406.406 0 0 1-.071.15.718.718 0 0 1-.467.253 1.181 1.181 0 0 1-.188.017c-.324 0-.516-.161-.688-.306-.045-.037-.09-.075-.141-.114-.64-.471-1.242-1.015-1.824-1.535a55.293 55.293 0 0 0-.867-.766l-.076-.065c-.46-.39-1.033-.878-1.015-1.706.005-.25.118-.362.212-.413.259-.137.605.038.913.228 1.036.607 1.79 1.384 2.589 2.203.042.043.129.118.241.216zM48.72 9.937l-.138-.024-.02-.135c-.15-.974 1.357-1.986 2.259-2.59.12-.082.228-.153.31-.212.359-.257.628-.406.909-.564.191-.106.394-.217.644-.375.06-.037.123-.082.188-.127.255-.177.566-.413.905-.362a.703.703 0 0 1 .401.182c.174.152.201.312.189.419-.032.361-.491.636-.859.856-.101.061-.188.11-.238.152-.168.133-.258.18-.344.227-.07.035-.143.075-.274.171-.222.163-.566.476-.897.781-.908.829-1.203 1.065-1.426 1.06-.08.049-.154.102-.229.152-.281.194-.593.414-1.082.414a2.138 2.138 0 0 1-.298-.025zm11.539 12.687c.022.137.017.478-.509.711-.502.221-.887.292-1.23.292-.309 0-.582-.057-.877-.118-.388-.084-.789-.178-1.364-.143-.083.002-.198.019-.33.036-.501.069-.899.112-1.127-.042l-.002-.002c-.009-.005-.015-.007-.045-.013s-.069-.013-.112-.032l-.059-.021a1.15 1.15 0 0 1-.151-.058c-.085-.045-.581-.482-.548-.744l.018-.132.158-.063c.336-.083.597-.145.854-.206l.008-.008c.102-.077.298-.146 1.443.008l.053.007c.229.028.361.051.45.066.144.025.143.025.335 0 .09-.012.217-.026.406-.047a7.31 7.31 0 0 0 .537-.087c.354-.069.723-.145 1.092-.101.522.047.942.341 1 .697z'/%3E%3C/defs%3E%3CclipPath id='f'%3E%3Cuse xlink:href='%23e' overflow='visible'/%3E%3C/clipPath%3E%3Cg clip-path='url(%23f)'%3E%3Cdefs%3E%3Cpath id='g' d='M0 5h67v60H0z'/%3E%3C/defs%3E%3CclipPath id='h'%3E%3Cuse xlink:href='%23g' overflow='visible'/%3E%3C/clipPath%3E%3Cpath clip-path='url(%23h)' fill='%2342BEC6' d='M.5 0h64.766v61.223H.5z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");background-size:contain;content:" "}.calcUserData #settingsPopup ul li.listMsg:hover{background-color:beige}.calcUserData #calcList{border-top:2px solid #e1e1e1}.calcUserData #calcList li{position:relative;font-weight:700;font-size:.9rem}.calcUserData #calcList li.disable:before{font-size:2.5rem;border-radius:5rem;min-width:1rem;color:#fff;display:inline-block;text-align:center;position:absolute;left:.25rem;top:.8rem;width:1rem;height:1rem;content:"✔";text-indent:-9999rem;background:#868686 url(https://static.moneysmart.gov.au/nextgen/img/thick-tick-white.svg);background-position-x:center;background-position-y:center;background-repeat:no-repeat;background-size:.6rem}.calcUserData #calcList li span{padding-left:0}@media screen and (min-width:28rem){.calcUserData #calcList li span{position:absolute;padding-left:1.5rem;right:1rem;top:.75rem}}.calcUserData .settings{display:none;margin:1rem 0 1.5rem;padding:0 1.5rem;text-align:right}.calcUserData .settings button{position:relative;padding:0 0 0 1.3rem;margin:0;background-color:transparent;border-radius:0;border:none;min-width:auto;text-decoration:underline;color:#4c7df8}.calcUserData .settings button:hover{color:#4c7df8}.calcUserData .settings button:focus{outline:.2rem solid #ff9100}.calcUserData .settings button:before{background-image:url(https://static.moneysmart.gov.au/nextgen/img/setting-icon.svg);content:"";position:absolute;background-size:contain;background-repeat:no-repeat;width:1rem;height:1rem;left:0;top:.1rem}.calcUserData #bpSettings{display:none;background-color:#fff;padding:1rem;margin:0 1.5rem 1.5rem;text-align:left;width:100%;max-width:16rem;box-shadow:.1rem .2rem 1rem .15rem rgba(0,0,0,.3);position:absolute;right:0;top:0;z-index:2}.calcUserData #bpSettings #centsWarning,.calcUserData #bpSettings #customWarning{display:none;font-size:.8rem;color:#d84847}.calcUserData #bpSettings #centsWarning button,.calcUserData #bpSettings #customWarning button{min-width:7rem;margin-top:.5rem;margin-right:.5rem}.calcUserData #bpSettings #bpCloseSettings{background:transparent url(https://static.moneysmart.gov.au/nextgen/img/close-blue.svg) no-repeat top;border:0!important;color:transparent!important;cursor:pointer!important;height:1.25rem!important;text-indent:-10000rem!important;width:1.25rem!important;background-color:transparent!important;min-width:0!important;padding:0!important}.calcUserData #bpSettings #bpCloseSettings:focus{outline:.2rem solid #ff9100}.calcUserData #bpSettings p{margin-bottom:.25rem}.calcUserData #bpSettings .bpRight{float:right;text-align:right;margin-bottom:0}.calcUserData #bpSettings label{width:10rem;display:inline-block}.calcUserData #bpSettings #currency{width:2.5rem;padding:.3rem;text-align:center}.calcUserData #bpSettings input[type=checkbox]{position:relative}.calcUserData #bpSettings input[type=checkbox]:before{content:"";background-color:#fff;position:absolute;left:-.15rem;top:-.2rem;width:1rem;height:1rem;border:.05rem solid #d0d0d0;border-radius:.2rem}.calcUserData #bpSettings input[type=checkbox]:focus:before{outline:.2rem solid #ff9100}.calcUserData #bpSettings input[type=checkbox]:checked:before{background-color:#0047f5}.calcUserData #bpSettings input[type=checkbox]:checked:after{content:"";left:.2rem;top:-.05rem;width:.25rem;height:.5rem;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);position:absolute}@media screen and (max-width:40em){.calcUserData .settings{text-align:left}.calcUserData #bpSettings{margin:0;padding:1rem 0 0;max-width:none}.calcUserData #bpSettings p{margin-left:1.5rem}.calcUserData #bpSettings p.bpRight{margin-right:1rem}}</style>
+
+<div class="smartTip" id="autosave">
+    <div class="autosave-heading">
+        <p>Autosave option</p>
+        <p><input type="checkbox" checked="checked" id="toggle-autosave" class="toggle-checkbox">
+            <label for="toggle-autosave" class="switch"></label></p>
+    </div>
+    <p>The budget planner will automatically save your data onto your computer or mobile device. Your data may be lost if you change your device or clear your cache. Disable the autosave function by switching to "off".</p>
+</div>
+
+<div id="autosaveModal">
+    <div class="inner">
+        <p class="row100">Are you sure you want to remove all budget planner data on this device?</p>
+        <p class="row50"><button id="btnAutoSaveModalCancel">Cancel</button></p>
+        <p class="row50 left"><button id="btnAutoSaveModalRemove">Remove</button></p>
+    </div>
+</div>
+
+<div id="statusBar"></div>
+<div class="calculator calcUserData" id="budgetPlanner"><p class="loading">Loading budget planner...</p></div>
+<script>
+    var budgetPlanner;
+
+    // COMMON SAVE FUNCTIONS
+    //Polyfill for 'includes' and 'entries' - needed for older browsers like IE
+    if (!String.prototype.includes) {
+        String.prototype.includes = function(search, start) {
+            'use strict';
+            if (search instanceof RegExp) {
+                throw TypeError('first argument must not be a RegExp');
+            }
+            if (start === undefined) { start = 0; }
+            return this.indexOf(search, start) !== -1;
+        };
+    }
+    if (!Object.entries) {
+        Object.entries = function( obj ){
+            var ownProps = Object.keys( obj ),
+                i = ownProps.length,
+                resArray = new Array(i); // preallocate the Array
+            while (i--)
+                resArray[i] = [ownProps[i], obj[ownProps[i]]];
+
+            return resArray;
+        };
+    }
+
+    var calcUserData = {
+        calculatorName : 'Budget planner',
+        profileName : '1', // this will auto increment when new profiles are created
+        allowSave : true,
+        storageName : 'MSuserDataBP', // name of local storage object to save to and restore from
+        settingsStorageName : 'MSsettingsDataBP', // name of local storage object to save to and restore settings from
+        dataFields : null,
+
+        init: function() {
+            if (typeof (Storage) === 'undefined') {
+                //no local storage so disable auto save
+                this.allowSave = false;
+            } else {
+                if(this.settingsStorageName != "") {
+                    var calcSettingsData = JSON.parse(localStorage.getItem(calcUserData.settingsStorageName));
+                    if (calcSettingsData !== null) {
+                        if (typeof calcSettingsData['autosave'] !== 'undefined') {
+                            if (calcSettingsData['autosave'] === 1) {
+                                this.allowSave = true;
+                            } else {
+                                this.allowSave = false;
+                            }
+                        }
+                    } else {
+                        //no settings so create default
+                        calcSettingsData = {};
+                        calcSettingsData['autosave'] = 1;
+                        var lsName = this.settingsStorageName;
+                        localStorage.setItem(lsName, JSON.stringify(calcSettingsData));
+                    }
+                }
+            }
+        },
+
+        save: function(){
+            if ( typeof(Storage) === 'undefined' )  { console.log('Local storage not supported'); return false }
+            var inputs = this.dataFields;
+            var calcUserData = {};
+            for ( var i = 0; i < inputs.length; i++ ) {
+                if ( inputs[i].value ) {
+                    if  ( inputs[i].id !== '' ) { // if there is no id on the field then don't save it because we can't find it to restore
+                        calcUserData[inputs[i].id] = inputs[i].value;
+                        if (this.calculatorName  === 'Budget planner' && (inputs[i].classList.contains('nosibling') !== true) ) {  calcUserData[inputs[i].nextSibling.id] = inputs[i].nextSibling.value; } // special case for budget planner, so we don't save lots of fields that have no user data - exclude hidden fields from this check
+                    }
+                }
+            }
+            var lsName = this.storageName + '-' + this.profileName;
+            localStorage.setItem( lsName,JSON.stringify( calcUserData ) );
+            //console.log('Saved data to '+lsName);
+        },
+        import: function(data){
+            //take base64 json object and create new budget
+            this.createNewVersion();
+            var dataBack = window.atob(data);
+            //update date to now before saving
+            dataBack = JSON.parse( dataBack );
+            dataBack[this.storageName + 'lastUpdated'] = Date.now();
+            var lsName = this.storageName + '-' + this.profileName;
+            dataBack = JSON.stringify( dataBack );
+            localStorage.setItem( lsName, dataBack );
+        },
+        restore: function(data){
+            if ( typeof(Storage) === 'undefined' ) { console.log('Local storage not supported'); return false }
+            var lsName = this.storageName + '-' + this.profileName;
+            var calcUserData;
+            var fields;
+            if(typeof data !== 'undefined'){
+                calcUserData =  data ;
+            }else{
+                calcUserData = JSON.parse( localStorage.getItem( lsName ) );
+            }
+
+            fields = Object.entries( calcUserData );
+
+            /*
+            var jsonString =  localStorage.getItem( lsName );
+            jsonString =  window.btoa(jsonString);
+            console.log(jsonString);
+
+            var jsonString = JSON.stringify( localStorage.getItem( lsName ));
+            jsonString =  window.btoa(jsonString);
+            console.log(jsonString);
+
+            var dataBack = window.atob(jsonString);
+            dataBack = JSON.parse (dataBack);
+            console.log(dataBack);
+             */
+
+            for ( var i = 0; i < fields.length; i++ ) {
+                //Detect if field starts with 'custom-' and if so create extra field
+                //custom items have 3 items, starting format: custom-[parent]-[random 5 digit ID]
+                // eg custom-income1-08992-label = "Custom label"
+                // eg custom-income1-08992 = 100 (value of custom label)
+                // eg custom-income1-08992-freq = 52 (frequency of custom label)
+                var customCheck = fields[i][0].split("-");
+
+                if(customCheck[0] === "custom"){
+                    //find frequency item
+                    var freq = 0;
+                    for ( var j = 0; j < fields.length; j++ ) {
+                        if ((fields[i][0] + "-freq") === fields[j][0]) {
+                            freq = fields[j][1];
+                        }
+                    }
+
+                    //find label item
+                    var label = "";
+                    for ( var j = 0; j < fields.length; j++ ) {
+                        if ((fields[i][0] + "-label") === fields[j][0]) {
+                            label = fields[j][1];
+                        }
+                    }
+
+                    if(freq !== 0) {
+                        //handle custom
+                        if (this.calculatorName  === 'Budget planner') {
+                            //create custom element
+                            budgetPlanner.restoreChild(customCheck[1], fields[i][0], label, fields[i][1], freq);
+                        }
+                    }
+                }else{
+                    //update existing element
+                    if(document.getElementById( fields[i][0] ) !== null) {
+                        document.getElementById(fields[i][0]).value = fields[i][1];
+                    }
+                }
+            }
+            //trigger change on hidden field to update the Calculator title and lastUpdated
+            if(document.getElementById( this.storageName + 'title' ) !== null) {
+                $('#' + this.storageName + 'title').trigger('change');
+            }
+            if(document.getElementById( this.storageName + 'lastUpdated' ) !== null) {
+                $('#' + this.storageName + 'lastUpdated').trigger('change');
+            }
+
+            //console.log('Restored data from '+storageName);
+        },
+        getData: function(id){
+            //return data as object for given key
+            if ( typeof(Storage) === 'undefined' ) { console.log('Local storage not supported'); return false }
+            return JSON.parse( localStorage.getItem( id ) );
+        },
+        createNewVersion: function(){
+            //find biggest version number and increment number by 1
+            //eg if MSuserDataBP-1, next version will be 2
+            var nextVersion = 0;
+            for(var i=0; i < calcUserData.getProfiles().length; i++){
+                var item = profiles[i].split("-");
+                if(parseInt(item[1]) > parseInt(nextVersion)){
+                    nextVersion = item[1];
+                }
+            }
+            this.profileName = parseInt(nextVersion)+1;
+        },
+        deleteProfile: function(id){
+            if ( typeof(Storage) === 'undefined' ) { console.log('Local storage not supported'); return false }
+            localStorage.removeItem(id);
+        },
+        getProfiles: function(){
+            if ( typeof(Storage) === 'undefined' )  { console.log('Local storage not supported'); return false }
+
+            var profiles = Object.keys(localStorage).filter(function(profile) {
+                return profile.includes(calcUserData.storageName);
+            });
+            return profiles;
+        }
+    };
+
+    //var dataFields = document.querySelectorAll( '.calculator .item input, .calculator .item select' ); // use this if we don't have the special case in the common functions below
+    //var dataFields = document.querySelectorAll( '.calculator .item input' );
+    //var dataFields; //gets set after creation of DOM and refreshed when custom items created or removed
+
+
+    //SETTINGS
+    var useDecimals;
+    var useCustomCategories;
+    var useCurrency;
+    var usePrintEmpty;
+
+    //GLOBAL VARS
+    var chart;
+    var ismobile = navigator.userAgent.match(/(iPad)|(iPhone)|(iPod)|(android)|(webOS)/i);
+
+    // we need to remember what the totals are
+    var totalIncome = 0;
+    var totalHome = 0;
+    var totalInsurance = 0;
+    var totalGroceries = 0;
+    var totalPersonal = 0;
+    var totalEntertainment = 0;
+    var totalTransport = 0;
+    var totalChildren = 0;
+    var totalNett = 0;
+
+    // Use setInterval to check if main MS script is loaded before proceeding.
+    var changeCount = 0;
+    var nIntervId;
+    var tries = 5;
+
+
+    // SAVE DATA VARS
+    var profiles = calcUserData.getProfiles();
+
+    // check if any data to import from URL
+    var hb = location.hash.split('#!')[1];
+    if(typeof hb !== 'undefined') {
+        var hbvals = hb.split('&');
+        for (var i = 0; i < hbvals.length; i++) {
+            if (hbvals[i].indexOf('import') != -1) {
+                var importVal = hbvals[i].replace('import=', '');
+                calcUserData.import(importVal);
+                profiles = calcUserData.getProfiles(); //refresh profiles
+                moneysmartjs.trackEvent('Calculator - '+calcUserData.calculatorName, "calcUserData", "import", 0, true);
+            }
+        }
+        //remove hashbang data
+        window.history.replaceState(null, null, window.location.pathname);
+    }
+
+
+    function loadBudgetPlannerCalcTimer(){
+        nIntervId = setInterval(loadBudgetPlannerCalc, 500);
+    }
+    function loadBudgetPlannerCalc(){
+        if(tries > 0){
+            if(typeof(msScriptsLoaded) != 'undefined'){
+                tries = 0;
+                clearInterval(nIntervId);
+                // Load dependancy.
+                moneysmartjs.loadScript(
+                    "https://static.moneysmart.gov.au/nextgen/js/calculator.js",
+                    function(){
+                        // Dependancy is loaded, start main script.
+                        var container = document.getElementById('budgetPlanner');
+                        var outerContainer = document.getElementById('autosave');
+                        var lastUpdatedTimerID;
+                        budgetPlanner = {
+
+                            init: function(){
+                                //Initialize
+                                var startName = "Budget planner"; //default title for the Budget
+                                useCurrency = '$';
+                                useDecimals = 0;
+                                useCustomCategories = 0;
+                                usePrintEmpty = 0;
+
+                                calcUserData.init();
+                                document.getElementById('toggle-autosave').checked = calcUserData.allowSave;
+
+                                if(profiles.length > 0 && calcUserData.allowSave) {
+                                    //existing data found, set profile to last saved
+                                    var lastProfile = 0;
+                                    var lastProfileVal = 0;
+                                    var lastTitleVal = startName;
+                                    for (var i=0; i< profiles.length; i++){
+                                        var data = calcUserData.getData(profiles[i]);
+                                        if(parseInt(data[calcUserData.storageName + 'lastUpdated']) > lastProfileVal || i === 0){
+                                            var p = profiles[i].split("-");
+                                            lastProfile = p[1];
+                                            lastProfileVal = data[calcUserData.storageName + 'lastUpdated'];
+                                            lastTitleVal = data[calcUserData.storageName + 'title'];
+                                        }
+                                    }
+
+                                    calcUserData.profileName = lastProfile;
+                                    startName = lastTitleVal;
+                                }
+
+                                $(function() {
+                                    //DOM ready
+                                    budgetPlanner.buildHTML(startName);
+
+                                    if(profiles.length > 0 && calcUserData.allowSave) {
+                                        //load in selected budget
+                                        calcUserData.restore();
+
+                                        //update settings
+                                        useCustomCategories = $('#customCategories').val();
+                                        useDecimals = $('#cents').val();
+                                        useCurrency = $('#currency').val();
+                                        usePrintEmpty = $('#printEmpty').val();
+                                        useDecimals = parseInt(useDecimals);
+                                        useCustomCategories = parseInt(useCustomCategories);
+                                        usePrintEmpty = parseInt(usePrintEmpty);
+
+                                        budgetPlanner.displayToast('Found existing budget', 2000);
+                                    }
+                                    budgetPlanner.UpdateBudget(false);
+                                });
+
+
+                                //if we are on a mobile we want the numeric keyboard to display by default
+                                if (ismobile) {  $('input.amount').attr('pattern', '[0-9]*'); }
+
+                                //TIMER (used to update lastUpdated field)
+                                lastUpdatedTimerID = setInterval(budgetPlanner.lastUpdatedTimer, 10000);
+
+
+                                //BUDGET SAVING EVENTS
+
+                                //toggle autosave pressed, prompt user before switching off
+                                $(outerContainer).on('click', '#toggle-autosave', function() {
+                                    if(!this.checked) {
+                                        $(this).prop('checked', true);
+                                        //prompt the user before switching off
+                                        $('#autosaveModal').show();
+                                        $('#btnAutoSaveModalCancel').focus();
+                                    }else {
+                                        if ( typeof(Storage) !== 'undefined' ) {
+                                            calcUserData.allowSave = true;
+                                            $('#settingsPopup li').removeClass('disable');
+                                            $('#settingsPopup .listMsg').remove();
+                                            lastUpdatedTimerID = setInterval(budgetPlanner.lastUpdatedTimer, 10000);
+
+                                            //no local storage so disable auto save
+                                            var calcSettingsData = {};
+                                            calcSettingsData['autosave'] = 1;
+                                            localStorage.setItem( calcUserData.settingsStorageName,JSON.stringify( calcSettingsData ) );
+                                            budgetPlanner.trackApp("calcUserData", "autosave on" );
+                                        } else {
+                                            alert ("Saving not available on this device.")
+                                        }
+                                    }
+                                });
+
+                                $('body').on('click', '#btnAutoSaveModalCancel, #autosaveModal', function() {
+                                    $('#autosaveModal').hide();
+                                    budgetPlanner.trackApp("calcUserData", "cancel autosave off" );
+                                });
+
+                                $('body').on('click', '#btnAutoSaveModalRemove', function() {
+                                    //turn off autosave and remove all data
+                                    $('#toggle-autosave').prop('checked', false);
+                                    $('#autosaveModal').hide();
+                                    calcUserData.allowSave = false;
+                                    clearInterval(lastUpdatedTimerID);
+                                    budgetPlanner.removeAllData();
+
+                                    if ( typeof(Storage) !== 'undefined' ) {
+                                        var calcSettingsData = {};
+                                        calcSettingsData['autosave'] = 0;
+                                        localStorage.setItem( calcUserData.settingsStorageName,JSON.stringify( calcSettingsData ) );
+                                    }
+                                    budgetPlanner.trackApp("calcUserData", "autosave off" );
+
+                                });
+
+                                //when Title and Last updated is changed make sure the title is updated
+                                $(container).on('change', '#' + calcUserData.storageName + 'title', function() {
+                                    document.getElementById("calcTitle").textContent = this.value;
+                                });
+                                $(container).on('change', '#' + calcUserData.storageName + 'lastUpdated', function() {
+                                    document.getElementById("msgLastUpdated").textContent = budgetPlanner.formatDate(this.value);
+                                    var dateStr = "";
+                                    if(this.value !== ''){
+                                        var lastUpdated = new Date(parseInt(this.value));
+                                        dateStr = lastUpdated.getDate() + '/' + (lastUpdated.getMonth()+1) + '/' + lastUpdated.getFullYear();
+                                        $('#calcList li[data-id="' + calcUserData.profileName + '"] span').html("("+dateStr+")");
+                                    }
+                                });
+
+
+                                //Another profile chosen to load
+                                $(container).on('click', '#calcList li', function() {
+                                    //get id of profile selected
+                                    calcUserData.profileName = $(this).data('id');
+
+                                    //clear fields
+                                    budgetPlanner.clearBudgetData(calcUserData.getData(calcUserData.storageName + "-" + calcUserData.profileName)[calcUserData.storageName + 'title']);
+                                    calcUserData.restore();
+                                    //update settings
+                                    useCustomCategories = $('#customCategories').val();
+                                    useDecimals = $('#cents').val();
+                                    useCurrency = $('#currency').val();
+                                    usePrintEmpty = $('#printEmpty').val();
+                                    useDecimals = parseInt(useDecimals);
+                                    useCustomCategories = parseInt(useCustomCategories);
+                                    usePrintEmpty = parseInt(usePrintEmpty);
+
+                                    budgetPlanner.UpdateBudget(false);
+                                    $('#calcList').html(budgetPlanner.renderProfiles());
+                                    $('#txtCalcRename').val($('#' + calcUserData.storageName + 'title').val());
+                                    $('#settingsPopup').hide();
+                                    $('#overlay').hide();
+
+                                    budgetPlanner.displayToast('Restored budget', 2000);
+                                    budgetPlanner.trackApp("calcUserData", "Restore budget" );
+                                    return false;
+                                });
+
+                                //Create new chosen
+                                $(container).on('click', '#btnCalcCreate', function() {
+                                    if($(this).hasClass("disable")){
+                                        return false;
+                                    }else {
+                                        $('#settingsRename').hide();
+                                        $('#settingsDelete').hide();
+                                        $('#settingsShare').hide();
+
+                                        $('#settingsNew').slideDown();
+                                        $('.settings-container').css('z-index', '2');
+                                        $('#settingsPopup').hide();
+                                        $('#container-view').hide();
+
+                                        $('#txtCalcNew').focus();
+                                        budgetPlanner.trackApp("calcUserData", "Settings - " + this.textContent);
+                                    }
+                                });
+
+                                //Rename chosen
+                                $(container).on('click', '#btnCalcRename', function() {
+                                    if($(this).hasClass("disable")){
+                                        return false;
+                                    }else {
+                                        $('#settingsNew').hide();
+                                        $('#settingsDelete').hide();
+                                        $('#settingsShare').hide();
+
+                                        $('#settingsRename').slideDown();
+                                        $('.settings-container').css('z-index', '2');
+                                        $('#settingsPopup').hide();
+                                        $('#container-view').hide();
+                                        $('#txtCalcRename').focus();
+                                        budgetPlanner.trackApp("calcUserData", "Settings - " + this.textContent);
+                                    }
+                                });
+
+                                //Share budget chosen
+                                $(container).on('click', '#btnCalcShare', function() {
+                                    if($(this).hasClass("disable")){
+                                        return false;
+                                    }else {
+                                        $('#settingsRename').hide();
+                                        $('#settingsNew').hide();
+                                        $('#settingsDelete').hide();
+
+                                        $('.settings-container').css('z-index', '2');
+                                        $('#settingsPopup').hide();
+                                        $('#container-view').hide();
+
+                                        //generate URL
+                                        //TODO: generate URL
+                                        //var dataURL = "eyJjdXJyZW5jeSI6IiQiLCJjZW50cyI6IjAiLCJjdXN0b21DYXRlZ29yaWVzIjoiMCIsInByaW50RW1wdHkiOiIwIiwiTVN1c2VyRGF0YUJQdGl0bGUiOiJCdWRnZXQgcGxhbm5lciIsIk1TdXNlckRhdGFCUGxhc3RVcGRhdGVkIjoiMTU4MDg2NDI1NzQ5NSIsImluY29tZTEiOiI4MCIsImluY29tZTEtZnJlcSI6IjUyIiwiaW5jb21lMiI6IjE1MCIsImluY29tZTItZnJlcSI6IjUyIiwiaW5jb21lMyI6IjQwIiwiaW5jb21lMy1mcmVxIjoiNTIiLCJpbmNvbWU0IjoiMjAiLCJpbmNvbWU0LWZyZXEiOiI1MiIsImluY29tZTUiOiIxMCIsImluY29tZTUtZnJlcSI6IjUyIiwiaW5jb21lNiI6IjUwIiwiaW5jb21lNi1mcmVxIjoiNTIiLCJpbmNvbWU3IjoiNSIsImluY29tZTctZnJlcSI6IjUyIiwiaW5jb21lT3RoZXIiOiIxNSIsImluY29tZU90aGVyLWZyZXEiOiI1MiIsImhvbWUxIjoiNTAwIiwiaG9tZTEtZnJlcSI6IjUyIiwiZW50ZXJ0YWlubWVudDEiOiIxNTAiLCJlbnRlcnRhaW5tZW50MS1mcmVxIjoiNTIifQ==";
+                                        var lsName = calcUserData.storageName + '-' + calcUserData.profileName;
+                                        var jsonString =  localStorage.getItem( lsName );
+                                        jsonString =  window.btoa(jsonString);
+                                        console.log(jsonString);
+
+
+                                        $('#txtCalcShare').val(location.protocol + '//' + location.host + location.pathname + "#!import=" + jsonString);
+                                        $('#settingsShare').slideDown();
+                                        $('#txtCalcShare').focus();
+                                        var copyText = document.getElementById("txtCalcShare");
+                                        copyText.select();
+                                        copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+                                        budgetPlanner.trackApp("calcUserData", "Settings - " + this.textContent);
+                                    }
+                                });
+
+                                //Delete budget chosen
+                                $(container).on('click', '#btnCalcDelete', function() {
+                                    if($(this).hasClass("disable")){
+                                        return false;
+                                    }else {
+                                        $('#settingsRename').hide();
+                                        $('#settingsNew').hide();
+                                        $('#settingsShare').hide();
+
+                                        $('.settings-container').css('z-index', '2');
+                                        $('#settingsPopup').hide();
+                                        $('#container-view').hide();
+
+                                        $('#settingsDelete').slideDown();
+                                        budgetPlanner.trackApp("calcUserData", "Settings - " + this.textContent);
+                                    }
+                                });
+
+                                //Highlight existing name if creating new or renaming budget
+                                $(container).on('focus', '#txtCalcNew, #txtCalcRename', function() {
+                                    this.select();
+                                });
+
+                                //Trigger OK button if pressing enter when creating new or renaming budget
+                                $(container).on('keyup', '#txtCalcNew', function(e) {
+                                    if(e.keyCode == 13){
+                                        $('#btnOKCalcNew').trigger('click');
+                                    }
+                                });
+                                $(container).on('keyup', ' #txtCalcRename', function(e) {
+                                    if(e.keyCode == 13){
+                                        $('#btnOKCalcRename').trigger('click');
+                                    }
+                                });
+
+                                //CREATE NEW budget
+                                $(container).on('click', '#btnOKCalcNew', function() {
+                                    document.getElementById("calcTitle").textContent = budgetPlanner.escapeHtml($('#txtCalcNew').val());
+                                    document.getElementById( calcUserData.storageName + "title").value = budgetPlanner.escapeHtml($('#txtCalcNew').val());
+                                    document.getElementById( calcUserData.storageName + "lastUpdated").value = "";
+                                    document.getElementById("msgLastUpdated").textContent = "";
+                                    calcUserData.createNewVersion();
+                                    budgetPlanner.clearBudgetData($('#txtCalcNew').val());
+                                    calcUserData.save();
+                                    profiles = calcUserData.getProfiles();
+                                    $('#calcList').html(budgetPlanner.renderProfiles());
+                                    $('#txtCalcDelete').html(budgetPlanner.renderDeleteProfiles());
+                                    budgetPlanner.displayToast('Saved', 2000);
+                                    budgetPlanner.trackApp("calcUserData", "Create new budget" );
+                                });
+
+                                //cancel new budget
+                                $(container).on('click', '#btnCancelCalcNew', function() {
+                                    budgetPlanner.closeSettings();
+                                    budgetPlanner.trackApp("calcUserData", "Cancel - Create new budget" );
+                                });
+
+                                //RENAME budget
+                                $(container).on('click', '#btnOKCalcRename', function() {
+                                    document.getElementById("calcTitle").textContent = $('#txtCalcRename').val();
+                                    document.getElementById(calcUserData.storageName + "title").value = document.getElementById("calcTitle").textContent;
+                                    calcUserData.save();
+                                    profiles = calcUserData.getProfiles();
+                                    $('#calcList').html(budgetPlanner.renderProfiles());
+                                    $('#txtCalcDelete').html(budgetPlanner.renderDeleteProfiles());
+                                    budgetPlanner.closeSettings();
+                                    budgetPlanner.displayToast('Budget renamed', 2000);
+                                    budgetPlanner.trackApp("calcUserData", "Rename budget" );
+                                });
+
+                                //cancel rename budget
+                                $(container).on('click', '#btnCancelCalcRename', function() {
+                                    budgetPlanner.closeSettings();
+                                    budgetPlanner.trackApp("calcUserData", "Cancel - Rename budget" );
+                                });
+
+                                //budget has been selected from list
+                                $(container).on('change', '#txtCalcDelete', function() {
+                                    if($('#txtCalcDelete').val() !== 'Choose budget to delete') {
+                                        $('#msgDelete').html(budgetPlanner.escapeHtml(this.options[this.selectedIndex].text) + " will be deleted");
+                                        $('#deleteModal').show();
+                                        budgetPlanner.trackApp("calcUserData", "Choose budget to delete" );
+                                    }
+                                });
+
+                                //SHARE budget
+
+                                //copy link
+                                $(container).on('click', '#btnOKCalcShare', function() {
+                                    //copy text to clipboard
+                                    var copyText = document.getElementById("txtCalcShare");
+                                    copyText.select();
+                                    copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+                                    document.execCommand("copy");
+                                    budgetPlanner.closeSettings();
+                                    budgetPlanner.displayToast('Link copied', 2000);
+                                    budgetPlanner.trackApp("calcUserData", "Copy link" );
+                                });
+
+                                //cancel share budget
+                                $(container).on('click', '#btnCancelCalcShare', function() {
+                                    budgetPlanner.closeSettings();
+                                    budgetPlanner.trackApp("calcUserData", "Cancel - Share budget" );
+                                });
+
+                                //DELETE budget
+                                $(container).on('click', '#btnModalDelete', function() {
+                                    var oldProfile = $('#txtCalcDelete').val();
+                                    //delete selected item
+                                    calcUserData.deleteProfile(oldProfile);
+                                    profiles = calcUserData.getProfiles();
+                                    $('#deleteModal').hide();
+                                    $('#txtCalcDelete').html(budgetPlanner.renderDeleteProfiles());
+                                    $('#calcList').html(budgetPlanner.renderProfiles());
+
+                                    //If the deleted budget was the currently selected budget then need to get a new profile name if last budget, or go back to a previously saved budget
+                                    if(oldProfile === (calcUserData.storageName + "-" + calcUserData.profileName)) {
+                                        if(profiles.length === 0) {
+                                            //last budget deleted so create a new one to go to
+                                            calcUserData.createNewVersion();
+                                            document.getElementById("calcTitle").textContent = "Budget planner";
+                                            document.getElementById( calcUserData.storageName + "title").value = "Budget planner";
+                                            document.getElementById( calcUserData.storageName + "lastUpdated").value = "";
+                                            document.getElementById("msgLastUpdated").textContent = "";
+                                            budgetPlanner.clearBudgetData("Budget planner");
+                                            calcUserData.save();
+                                            budgetPlanner.displayToast('Budget deleted', 2000);
+                                        }else {
+                                            //other budgets exist so go most recent
+                                            var lastProfile = 0;
+                                            var lastProfileVal = 0;
+                                            for (var i=0; i< profiles.length; i++){
+                                                var data = calcUserData.getData(profiles[i]);
+                                                if(parseInt(data[calcUserData.storageName + 'lastUpdated']) > lastProfileVal || i === 0){
+                                                    var p = profiles[i].split("-");
+                                                    lastProfile = p[1];
+                                                    lastProfileVal = data[calcUserData.storageName + 'lastUpdated'];
+                                                }
+                                            }
+                                            calcUserData.profileName = lastProfile;
+                                            //clear fields
+                                            budgetPlanner.clearBudgetData(calcUserData.getData(calcUserData.storageName + "-" + calcUserData.profileName)[calcUserData.storageName + 'title']);
+                                            calcUserData.restore();
+                                            //update settings
+                                            useCustomCategories = $('#customCategories').val();
+                                            useDecimals = $('#cents').val();
+                                            useCurrency = $('#currency').val();
+                                            usePrintEmpty = $('#printEmpty').val();
+                                            useDecimals = parseInt(useDecimals);
+                                            useCustomCategories = parseInt(useCustomCategories);
+                                            usePrintEmpty = parseInt(usePrintEmpty);
+
+                                            budgetPlanner.UpdateBudget(false);
+                                            $('#calcList').html(budgetPlanner.renderProfiles());
+                                            $('#txtCalcRename').val($('#MSuserDataBPtitle').val());
+                                            budgetPlanner.displayToast('Budget deleted. Previous budget restored', 2000);
+                                        }
+                                    }
+                                    budgetPlanner.trackApp("calcUserData", "Delete budget" );
+                                });
+
+                                //cancel delete budget (when at select budget stage)
+                                $(container).on('click', '#btnCancelCalcDelete', function() {
+                                    budgetPlanner.closeSettings();
+                                    budgetPlanner.trackApp("calcUserData", "Cancel - Delete budget" );
+                                });
+
+                                //cancel delete budget (on final warning stage)
+                                $(container).on('click', '#btnModalCancel', function() {
+                                    $('#deleteModal').hide();
+                                    budgetPlanner.trackApp("calcUserData", "Cancel - Delete budget modal" );
+                                });
+
+                                //overlay displayed when settings popped up
+                                $(container).on('click', '#overlay', function() {
+                                    budgetPlanner.closeSettings();
+                                });
+
+
+                                //GENERAL EVENTS
+                                $(container).on('click', '.category h3', function() { $(this).toggleClass('open'); $(this).nextUntil('h3').slideToggle(); });
+
+                                $(container).on('click', '#summary h3', function() {
+                                    if ( $( '#budgetPlannerResult' ).is(':visible') === false ) {
+                                        //don't allow results to close once open
+                                        $('#budgetPlannerResult').slideToggle();
+                                    }
+                                    /*
+                                    if ( $( '#budgetPlannerResult' ).is(':visible') ) {
+                                        budgetPlanner.updateSummary();
+                                    }
+                                     */
+                                });
+
+                                //hide overlay on [esc] key
+                                document.querySelector('body').addEventListener('keyup', function(event) {
+                                    if (event.keyCode === 27) {
+                                        budgetPlanner.closeSettings();
+                                        $('#autosaveModal').hide();
+                                    }
+                                });
+
+                                // settings
+                                $(container).on('click', '#bpCloseSettings', function() {
+                                    budgetPlanner.closeSettings();
+                                    budgetPlanner.trackApp("calcUserData", "Hide settings" );
+                                });
+
+                                $(container).on('click', '#btnBudgetSettings', function() {
+                                    $('#settingsPopup').hide();
+                                    $('#container-view').hide();
+                                    $('#bpSettings').slideDown();
+                                    /*
+                                    if ( useCustomCategories === 1 && $('.item.child').length > 0 ){
+                                        $('#customCategories').attr("disabled", true);
+                                    }
+                                    */
+                                });
+
+                                $(container).on('click', '#btnSettings', function() {
+                                    $('#settingsPopup').toggle();
+                                    if($('#settingsPopup').css('display', 'block')){
+                                        $('#overlay').show();
+                                        budgetPlanner.trackApp("calcUserData", "Open calc options" );
+                                    }
+                                });
+
+                                $(container).on('change', '#currency', function() {
+                                    useCurrency = $('#currency').val();
+                                    budgetPlanner.UpdateBudget(true);
+                                    budgetPlanner.trackApp("Settings", useCurrency + " - " + useDecimals + " - " + useCustomCategories + " - " + usePrintEmpty);
+                                });
+
+                                $(container).on('change', '#cents', function() {
+                                    if(this.checked){
+                                        useDecimals = 2;
+                                        this.value = 2;
+                                        budgetPlanner.UpdateBudget(true);
+                                        budgetPlanner.trackApp("Settings", useCurrency + " - " + useDecimals + " - " + useCustomCategories + " - " + usePrintEmpty);
+                                    }else{
+                                        //Check if any values have decimals before changing
+                                        if(budgetPlanner.hasDecimals() === false) {
+                                            useDecimals = 0;
+                                            this.value = 0;
+                                            budgetPlanner.UpdateBudget(true);
+                                            budgetPlanner.trackApp("Settings", useCurrency + " - " + useDecimals + " - " + useCustomCategories + " - " + usePrintEmpty);
+                                        }else{
+                                            //Prompt user if they want to continue
+                                            $('#cents').prop('checked', true);
+                                            $('#centsWarning').show();
+                                        }
+                                    }
+                                });
+
+                                $(container).on('click', '#continueCentsWarning', function() {
+                                    //confirm turning off cents
+                                    useDecimals = 0;
+                                    $('#cents').val("0");
+                                    $('#centsWarning').hide();
+                                    budgetPlanner.UpdateBudget(true);
+                                    budgetPlanner.trackApp("Settings", "Confirm turning off cents");
+                                });
+                                $(container).on('click', '#cancelCentsWarning', function() {
+                                    //cancel turning off cents
+                                    $('#centsWarning').hide();
+                                });
+
+
+                                $(container).on('change', '#customCategories', function() {
+
+                                    if(this.checked){
+                                        useCustomCategories = 1;
+                                        this.value = 1;
+                                        budgetPlanner.UpdateBudget(true);
+                                        budgetPlanner.trackApp("Settings", useCurrency + " - " + useDecimals + " - " + useCustomCategories + " - " + usePrintEmpty);
+                                    }else{
+                                        if(budgetPlanner.hasCustom() === false) {
+                                            useCustomCategories = 0;
+                                            this.value = 0;
+                                            $('div.item.child').remove();
+                                            $('div.item.core').find('input, select, span').removeClass('hide');
+                                            budgetPlanner.UpdateBudget(true);
+                                            budgetPlanner.trackApp("Settings", useCurrency + " - " + useDecimals + " - " + useCustomCategories + " - " + usePrintEmpty);
+                                        }else{
+                                            //Prompt user if they want to continue
+                                            $('#customCategories').prop('checked', true);
+                                            $('#customWarning').show();
+                                        }
+                                    }
+                                });
+
+                                $(container).on('click', '#continueCustomWarning', function() {
+                                    //confirm turning off custom categories
+                                    useCustomCategories = 0;
+                                    $('#customCategories').val("0");
+                                    $('div.item.child').remove();
+                                    $('div.item.core').find('input, select, span').removeClass('hide');
+                                    $('#customWarning').hide();
+                                    budgetPlanner.UpdateBudget(true);
+                                    budgetPlanner.trackApp("Settings", "Confirm turning off custom categories");
+                                });
+                                $(container).on('click', '#cancelCustomWarning', function() {
+                                    //cancel turning off custom categories
+                                    $('#customWarning').hide();
+                                });
+
+                                $(container).on('change', '#printEmpty', function() {
+                                    if(this.checked){
+                                        usePrintEmpty = 1;
+                                        this.value = 1;
+                                        $('#budgetPlanner').addClass("printall")
+                                    }else{
+                                        usePrintEmpty = 0;
+                                        this.value = 0;
+                                        $('#budgetPlanner').removeClass("printall")
+                                    }
+
+                                    budgetPlanner.UpdateBudget(true);
+                                    budgetPlanner.trackApp("Settings", useCurrency + " - " + useDecimals + " - " + useCustomCategories + " - " + usePrintEmpty);
+
+                                });
+
+                                //$(container).on('change', '.item select, #frequency', function() { $(this).blur(); UpdateBudget(); }); // removed auto blur for accessibility
+                                $(container).on('change', '.item select, #frequency', function() { budgetPlanner.UpdateBudget(true); });
+
+                                // highlight the selected row
+                                $(container).on('blur focus', '.item input, .item select', function() {
+                                    $(this).parents('.item').toggleClass('highlight');
+                                });
+
+                                //validation
+                                $(container).on('blur', '.item input[type="number"].amount', function() { this.value = this.value.replace(/[^0-9\,.]/g,''); });
+                                $(container).on('blur', '.item input[type="text"].amount', function() { this.value = budgetPlanner.formatNumber(this.value, 0, useDecimals, true); });
+                                $(container).on('blur', '.item input.amount', function() { if ( parseFloat(this.value) <= 0 ) { this.value = '' } });
+
+                                // accessibility - trigger clicks on non native buttons on enter or space keypress
+                                $(document).on('keyup', '[role~=button]', function(e) {
+                                    if(e.keyCode == 13 || e.keyCode == 32){ // enter or space
+                                        $(this).trigger('click');
+                                    }
+                                });
+
+                                $(container).on('click', '.item.core label a', function() {
+                                    //var parent = $(this).prevAll('.item.core:first').find('input.amount').attr('id');
+                                    var parent = $(this).parent().attr('for');
+
+                                    var html = budgetPlanner.child(parent);
+                                    var $item = $(this).parents('.item');
+                                    var firstChild = false;
+                                    if ( !$item.next().hasClass('child') ) { firstChild = true }
+                                    $item.after( html );
+                                    // copy the parent vals if this is the first child
+                                    if ( firstChild ) {
+                                        $item.next('.child').find('.amount').val( $item.find('.amount').val() );
+                                        $item.next('.child').find('select').val( $item.find('select').val() );
+                                    }
+                                    $item.find('input, select, span').addClass('hide');
+                                    budgetPlanner.UpdateBudget(true);
+                                    $item.next('.child').find('input.name').focus();
+                                });
+
+                                $(container).on('focus', '.child input', function() { $(this).next('.delete-item').show(); });
+
+                                $(container).on('blur', '.child input', function() {
+                                    //only hide delete item if not tabbing to it with keyboard
+                                    $this = $(this);
+                                    setTimeout(function() {
+                                        if($this.next('.delete-item').is(":focus") == false) {
+                                            $this.next('.delete-item').hide(0);
+                                        }
+                                    }, 500);
+                                });
+
+                                $(container).on('click', '.delete-item', function() {
+                                    var $item = $(this).parents('.item');
+                                    if ( $item.next().hasClass('child') || $item.prev().hasClass('child') ) { }
+                                    else { $item.prev().find('input, select, span').removeClass('hide'); $item.prev().find('input').val(''); }
+                                    $item.remove();
+                                    budgetPlanner.UpdateBudget(true);
+                                });
+
+                                $(container).on('blur', '.delete-item', function() { $(this).hide(); });
+
+
+                                //print
+                                $(container).on('click', '#toolbar .print', function() { showAppToolbox("print"); });
+                                $(document).on('click', 'button.print', function() { $(".close").trigger("click"); window.print();  });
+
+                                //FORM EVENTS
+                                //go to next input on enter key press
+                                $(container).on('keypress', '.item input', function(e) {
+                                    if ( e.keyCode == 13 ){
+                                        $(this).blur();
+                                        //$(this).parents("div").next().find("input.amount").focus();
+
+                                        inputs = $("input.amount");
+                                        var currentInputNumber = inputs.index(this);
+                                        if (inputs[currentInputNumber + 1] != null) {
+                                            var nextInput = inputs[currentInputNumber + 1];
+                                            nextInput.focus();
+                                            nextInput.select();
+                                            e.preventDefault();
+                                            return false
+                                        }
+                                    }
+                                });
+
+                                // update the budget if the amounts inputs have updated
+                                $(container).on('focus', '.item input', function() {
+                                    $(this).attr('data-previous', $(this).val());
+                                });
+
+                                $(container).on('blur', '.item input', function() {
+                                    if($(this).attr('data-previous') !== this.value){
+                                        budgetPlanner.UpdateBudget(true);
+                                    }
+                                });
+
+                                $(container).on('blur', '.amounts input.dollar', function() {
+                                    budgetPlanner.UpdateBudget(true);
+                                    //this.value = formatNumber(this.value, 0, useDecimals, true);
+                                    $("#freq-"+this.id+"-name").text($("#freq-"+this.id+" option:selected").text());
+                                    $("#"+this.id+"-val").text($("#"+this.id).val());
+                                });
+
+                                $(container).on('click', '#btnAddCalendar', function() {
+                                    $('#calendarPicker').toggle();
+                                    $('#overlay').toggle();
+                                });
+
+
+                                //GA Tracking
+                                //TODO: Update to relect new interface
+                                //tab navigation
+                                $(container).on('click', '.category h3', function() { budgetPlanner.trackApp("Tab", $(this).text() ); });
+                                //global frequency
+                                $(container).on('click', '.frequency', function() { budgetPlanner.trackApp("Frequency", $(this).children("option:selected").html() ); });
+                                //input amount
+                                $(container).on('blur', 'input.amount', function() { budgetPlanner.trackApp("Input", this.id ); });
+                                //printing
+                                $(document).on('click', '.print-long', function() { budgetPlanner.trackApp("Print", "Long" ); });
+                                $(document).on('click', '.print-short', function() { budgetPlanner.trackApp("Print", "Short" ); });
+                                $(document).on('click', '#reset', function() { budgetPlanner.trackApp("Reset", "New budget" ); });
+                                $(document).on('click', '#save-as', function() { budgetPlanner.trackApp("Click", "Toolbox - Save as");  });
+                                $(document).on('click', '#delete', function() { budgetPlanner.trackApp("Click", "Toolbox - Delete");  });
+                                $(document).on('click', '#reset', function() { budgetPlanner.trackApp("Click", "Toolbox - Create new");  });
+
+                                //calendar
+                                $(container).on('click', '#btnAddCalendar', function() { budgetPlanner.trackApp("Calendar", "Open" ); });
+                                $(container).on('click', '#calendarPicker a', function() { budgetPlanner.trackApp("Calendar", $(this).attr('id') ); });
+                            },
+
+                            escapeHtml: function (unsafe) {
+                                return unsafe
+                                    .replace(/&/g, "&amp;")
+                                    .replace(/</g, "&lt;")
+                                    .replace(/>/g, "&gt;")
+                                    .replace(/"/g, "&quot;")
+                                    .replace(/'/g, "&#039;");
+                            },
+
+                            hasDecimals: function () {
+                                //check if any budget values have a cents value other than 0
+                                var foundDecimal = false;
+                                $('#budgetPlanner input.amount').each(function( i) {
+                                    if( this.value !== '' && Number(this.value) !== Math.floor(Number(this.value))){
+                                        foundDecimal = true;
+                                    }
+                                });
+                                return foundDecimal;
+                            },
+
+                            hasCustom: function () {
+                                //check if custom values have been created
+                                if($('#budgetPlanner .item.child').length > 0) {
+                                    return true;
+                                } else{
+                                    return false;
+                                }
+                            },
+
+                            lastUpdatedTimer: function () {
+                                document.getElementById("msgLastUpdated").textContent = budgetPlanner.formatDate(document.getElementById("MSuserDataBPlastUpdated").value);
+                            },
+
+                            formatDate: function (timestamp) {
+                                //Format to be date friendly
+                                var text = "";
+                                if(timestamp.length > 0){
+                                    //adapted from https://stackoverflow.com/questions/6108819/javascript-timestamp-to-relative-time-eg-2-seconds-ago-one-week-ago-etc-best
+                                    var msPerMinute = 60 * 1000;
+                                    var msPerHour = msPerMinute * 60;
+                                    var msPerDay = msPerHour * 24;
+                                    var msPerMonth = msPerDay * 30;
+                                    var msPerYear = msPerDay * 365;
+                                    var current = Date.now();
+
+                                    text = "Last updated ";
+                                    var elapsed = current - timestamp;
+                                    if (elapsed < 10000) {
+                                        text += 'just now';
+                                    }
+                                    else if (elapsed < msPerMinute) {
+                                        text += 'less than a minute ago'; // Math.round(elapsed/1000) for seconds
+                                    }
+                                    else if (elapsed < msPerHour) {
+                                        text += Math.round(elapsed/msPerMinute) + (Math.round(elapsed/msPerMinute) === 1 ? ' minute ago' : ' minutes ago');
+                                    }
+                                    else if (elapsed < msPerDay ) {
+                                        text += Math.round(elapsed/msPerHour) + (Math.round(elapsed/msPerHour) === 1 ? ' hour ago' : ' hours ago');
+                                    }
+                                    else if (elapsed < msPerMonth) {
+                                        text += 'approximately ' + Math.round(elapsed/msPerDay) + (Math.round(elapsed/msPerDay) === 1 ? ' day ago' : ' days ago');
+                                    }
+                                    else if (elapsed < msPerYear) {
+                                        text += 'approximately ' + Math.round(elapsed/msPerMonth) + (Math.round(elapsed/msPerMonth) === 1 ? ' month ago' : ' months ago');
+                                    }
+                                    else {
+                                        text += 'approximately ' + Math.round(elapsed/msPerYear) + (Math.round(elapsed/msPerYear) === 1 ? ' year ago' : ' years ago');
+                                    }
+                                }
+                                return text;
+                            },
+
+                            closeSettings: function() {
+                                $('#settingsPopup').hide();
+                                $('#overlay').hide();
+                                $('#bpSettings').slideUp();
+                                $('#deleteModal').hide();
+                                $('#container-view').show();
+                                $('#settingsDelete, #settingsNew, #settingsRename, #settingsShare').css('display','none');
+                                $('.settings-container').css('z-index', 'auto');
+                                $('#calendarPicker').hide();
+                                $('#centsWarning').hide();
+                            },
+
+                            removeAllData: function() {
+                                for (var i=0; i< profiles.length; i++){
+                                    calcUserData.deleteProfile(profiles[i]);
+                                }
+
+                                //reset to start
+                                calcUserData.profileName = 1;
+                                document.getElementById("calcTitle").textContent = "Budget planner";
+                                document.getElementById("MSuserDataBPtitle").value = "Budget planner";
+                                document.getElementById("MSuserDataBPlastUpdated").value = "";
+                                document.getElementById("msgLastUpdated").textContent = "";
+
+                                budgetPlanner.clearBudgetData("Budget planner");
+                                if(calcUserData.allowSave) {
+                                    calcUserData.save();
+                                }
+
+                                budgetPlanner.displayToast('All budgets deleted', 2000);
+                            },
+
+                            clearBudgetData: function (budgetName){
+                                budgetPlanner.buildHTML(budgetName);
+                                budgetPlanner.UpdateBudget(false);
+                            },
+
+                            getDevice: function() {
+                                //return device and browser as string
+                                var osName = "";
+                                var browserName = "";
+                                if (navigator.userAgent.indexOf("Win") !== -1) osName = "Windows";
+                                if (navigator.userAgent.indexOf("Mac") !== -1) osName = "Mac";
+                                if (navigator.userAgent.indexOf("Linux") !== -1) osName = "Linux";
+                                if (navigator.userAgent.indexOf("Android") !== -1) osName = "Android";
+                                if (navigator.userAgent.indexOf("like Mac") !== -1) osName = "iOS";
+                                if ((navigator.userAgent.indexOf("iPad") !== -1 || navigator.userAgent.indexOf('Mac') > -1) && 'ontouchend' in document) osName = "iPad";
+
+                                if (navigator.userAgent.indexOf("Chrome") !== -1 ) { browserName = "Chrome";}
+                                else if (navigator.userAgent.indexOf("Firefox") !== -1 ) {browserName = "Mozilla Firefox";}
+                                else if (navigator.userAgent.indexOf("MSIE") !== -1 ) {browserName = "Internet Explorer";}
+                                else if (navigator.userAgent.indexOf("Edge") !== -1 ) {browserName = "Microsoft Edge";}
+                                else if (navigator.userAgent.indexOf("Safari") !== -1 ) {browserName = "Safari";}
+                                else if (navigator.userAgent.indexOf("Opera") !== -1 ) {browserName = "Opera";}
+
+                                if (osName === "" || browserName === ""){
+                                    return "";
+                                }  else {
+                                    return "device: " + osName + ", browser: " + browserName;
+                                }
+                            },
+
+                            displayToast: function (msg, time) {
+                                $('#statusBar').html('<span>' + msg + '</span>');
+                                $('#statusBar').css('opacity', 1);
+                                setTimeout(function() {
+                                    $('#statusBar').css('opacity', 0);
+                                }, time);
+                            },
+
+                            buildHTML: function (budgetName){
+                                var items = [
+                                    // Income
+                                    { type: "category", label: "Income" },
+                                    { label: "Your take-home pay", id: "income1", old: "income1"  },
+                                    { label: "Your partner's take-home pay", id: "income2", old: "income2" },
+                                    { label: "Bonuses & overtime", id: "income3", old: "income3" },
+                                    { label: "Income from savings & investments", id: "income4", old: "income4" },
+                                    { label: "Centrelink benefits", id: "income5", old: "income5" },
+                                    { label: "Family benefit payments", id: "income6", old: "income6" },
+                                    { label: "Child support received", id: "income7", old: "income7" },
+                                    { label: "Other", id: "incomeOther", old: "income8" },
+                                    // Home & utilities
+                                    { type: "category", label: "Home & utilities" },
+                                    { label: "Mortgage & rent", id: "home1", old: "financial1" },
+                                    { label: "Body corporate fees", id: "home2", old: "utilities2" },
+                                    { label: "Council rates", id: "home3", old: "utilities1" },
+                                    { label: "Furniture & appliances", id: "home4", old: "utilities5" },
+                                    { label: "Renovations & maintenance", id: "home5", old: "utilities4" },
+                                    { label: "Electricity", id: "home6", old: "utilities7" },
+                                    { label: "Gas", id: "home7", old: "utilities8" },
+                                    { label: "Water", id: "home8", old: "utilities9" },
+                                    { label: "Internet", id: "home9", old: "utilities10" },
+                                    { label: "Pay TV", id: "home10", old: "utilities11" },
+                                    { label: "Home phone", id: "home11", old: "utilities12" },
+                                    { label: "Mobile", id: "home12", old: "utilities13" },
+                                    { label: "Other", id: "homeOther", old: "utilities6 utilities14" },
+                                    // Insurance & financial
+                                    { type: "category", label: "Insurance & financial" },
+                                    { label: "Car insurance", id: "insurance1", old: "shopping9" },
+                                    { label: "Home & contents insurance", id: "insurance2", old: "utilities3" },
+                                    { label: "Personal & life insurance", id: "insurance3", old: "education9" },
+                                    { label: "Health insurance", id: "insurance4", old: "education8" },
+                                    { label: "Car loan", id: "insurance5", old: "financial2" },
+                                    { label: "Credit card interest", id: "insurance6", old: "financial4" },
+                                    { label: "Other loans", id: "insurance7", old: "financial3" },
+                                    { label: "Paying off debt", id: "insurance8" },
+                                    { label: "Savings", id: "insurance9", old: "financial6" },
+                                    { label: "Investments & super contributions", id: "insurance10", old: "financial5" },
+                                    { label: "Charity donations", id: "insurance11", old: "financial8" },
+                                    { label: "Other", id: "insuranceOther", old: "financial10" },
+                                    // Groceries
+                                    { type: "category", label: "Groceries" },
+                                    { label: "Supermarket", id: "groceries1", old: "shopping1" },
+                                    { label: "Butcher", id: "groceries2" },
+                                    { label: "Fruit & veg market", id: "groceries3", old: "shopping2" },
+                                    { label: "Fish shop", id: "groceries4" },
+                                    { label: "Deli & bakery", id: "groceries5" },
+                                    { label: "Pet food", id: "groceries6" },
+                                    { label: "Other", id: "groceriesOther", old: "shopping8" },
+                                    // Personal & medical
+                                    { type: "category", label: "Personal & medical" },
+                                    { label: "Cosmetics & toiletries", id: "personal1", old: "shopping5" },
+                                    { label: "Hair & beauty", id: "personal2", old: "shopping6" },
+                                    { label: "Medicines & pharmacy", id: "personal3", old: "education12" },
+                                    { label: "Glasses & eye care", id: "personal4", old: "education13" },
+                                    { label: "Dental", id: "personal5", old: "education11" },
+                                    { label: "Doctors & medical", id: "personal6", old: "education10" },
+                                    { label: "Hobbies", id: "personal7", old: "entertainment7" },
+                                    { label: "Clothing & shoes", id: "personal8", old: "shopping4" },
+                                    { label: "Jewellery & accessories", id: "personal9" },
+                                    { label: "Computers & gadgets", id: "personal10" },
+                                    { label: "Sports & gym", id: "personal11", old: "entertainment4" },
+                                    { label: "Education", id: "personal12", old: "education2" },
+                                    { label: "Pet care & vet", id: "personal13", old: "education14" },
+                                    { label: "Other", id: "personalOther", old: "education15" },
+                                    // Entertainment & eat-out
+                                    { type: "category", label: "Entertainment & eat-out" },
+                                    { label: "Coffee & tea", id: "entertainment1", old: "entertainment14" },
+                                    { label: "Lunches - bought", id: "entertainment2", old: "entertainment13" },
+                                    { label: "Take-away & snacks", id: "entertainment3", old: "entertainment12" },
+                                    { label: "Cigarettes", id: "entertainment4", old: "entertainment5" },
+                                    { label: "Drinks & alcohol", id: "entertainment5", old: "entertainment3" },
+                                    { label: "Bars & clubs", id: "entertainment6", old: "entertainment2" },
+                                    { label: "Restaurants", id: "entertainment7", old: "entertainment11" },
+                                    { label: "Books", id: "entertainment8" },
+                                    { label: "Newspaper & magazines", id: "entertainment9", old: "entertainment8" },
+                                    { label: "Movies & music", id: "entertainment10", old: "entertainment6" },
+                                    { label: "Holidays", id: "entertainment11", old: "entertainment1" },
+                                    { label: "Celebrations & gifts", id: "entertainment12", old: "shopping7 entertainment9" },
+                                    { label: "Other", id: "entertainmentOther", old: "entertainment10 entertainment15" },
+                                    // Transport & auto
+                                    { type: "category", label: "Transport & auto" },
+                                    { label: "Bus & train & ferry", id: "transport1", old: "shopping14" },
+                                    { label: "Petrol", id: "transport2", old: "shopping12" },
+                                    { label: "Road tolls & parking", id: "transport3", old: "shopping13" },
+                                    { label: "Rego & licence", id: "transport4", old: "shopping11" },
+                                    { label: "Repairs & maintenance", id: "transport5", old: "shopping10" },
+                                    { label: "Fines", id: "transport6" },
+                                    { label: "Airfares", id: "transport7" },
+                                    { label: "Other", id: "transportOther", old: "shopping15" },
+                                    // Children
+                                    { type: "category", label: "Children" },
+                                    { label: "Baby products", id: "children1", old: "shopping3" },
+                                    { label: "Toys", id: "children2" },
+                                    { label: "Babysitting", id: "children3" },
+                                    { label: "Childcare", id: "children4", old: "education3" },
+                                    { label: "Sports & activities", id: "children5", old: "education5" },
+                                    { label: "School fees", id: "children6", old: "education1" },
+                                    { label: "Excursions", id: "children7", old: "education6" },
+                                    { label: "School uniforms", id: "children8", old: "education4" },
+                                    { label: "Other school needs", id: "children9" },
+                                    { label: "Child support payment", id: "children10", old: "financial7" },
+                                    { label: "Other", id: "childrenOther", old: "financial9 education7" }
+                                ];
+
+                                // build the HTML for all the items
+                                var html = '<div id="overlay"></div><div class="header"><h2 id="calcTitle">' + budgetPlanner.escapeHtml(budgetName) + '</h2>' +
+                                    '<button id="btnSettings">Settings</button><span id="msgLastUpdated"></span>' +
+                                    '<div id="settingsPopup"><ul>' + budgetPlanner.renderSettings() + '</ul><ul id="calcList">'+ budgetPlanner.renderProfiles() + '</ul></div></div>' +
+                                    '<div class="settings-container">' +
+                                    '<p id="settingsNew" class="settingsChange"><label for="txtCalcNew">Budget name</label><input id="txtCalcNew" class="inputLine" type="text" value="My new budget" /><button class="btnBasic btnFirst" id="btnOKCalcNew">Create</button><button class="btnBasic" id="btnCancelCalcNew">Cancel</button></p>' +
+                                    '<p id="settingsRename" class="settingsChange"><label for="txtCalcRename">Rename budget</label><input id="txtCalcRename" class="inputLine" type="text" value="' + budgetPlanner.escapeHtml(budgetName) + '" /><button class="btnBasic btnFirst" id="btnOKCalcRename">Rename</button><button class="btnBasic" id="btnCancelCalcRename">Cancel</button></p>' +
+                                    '<p id="settingsShare" class="settingsChange"><label for="txtCalcShare">Copy the below link to share budget</label><input id="txtCalcShare" class="inputLine" type="text" value="" /><button class="btnBasic btnFirst" id="btnOKCalcShare">Copy link</button><button class="btnBasic" id="btnCancelCalcShare">Cancel</button></p>' +
+                                    '<p id="settingsDelete" class="settingsChange"><label for="txtCalcDelete">Delete budget</label><select id="txtCalcDelete">' + budgetPlanner.renderDeleteProfiles() + '</select><button class="btnBasic btnFirst" id="btnCancelCalcDelete">Cancel</button></p>' +
+                                    '<p id="container-view"><strong>View</strong> <select id="frequency"><option value="1">Annually</option><option value="4">Quarterly</option><option value="12">Monthly</option><option value="26">Fortnightly</option><option value="52">Weekly</option></select></p>' +
+                                    '<div id="deleteModal"><div class="inner"><p id="msgDelete" class="row100">My budget will be deleted</p><p class="row50"><button id="btnModalCancel">Cancel</button></p><p class="row50 left"><button id="btnModalDelete">Delete</button></p></div></div>' +
+                                    '<div id="bpSettings"><p class="bpRight"><button type="button" id="bpCloseSettings">close</button></p>' +
+                                    '<p><label for="currency">Currency symbol:</label> <input class="nosibling" type="text" value="' + useCurrency + '" id="currency"></p>'	+
+                                    '<p><label for="cents">Enable cents:</label> <input class="nosibling" type="checkbox" id="cents" value="0"></p>' +
+                                    '<p id="centsWarning">Warning: Budget contains values with cents. These will be rounded if you continue.<br /><button id="continueCentsWarning">Continue</button> <button id="cancelCentsWarning">Cancel</button> </p>' +
+                                    '<p><label for="customCategories">Enable custom items:</label> <input class="nosibling" type="checkbox" id="customCategories" value="0"></p>' +
+                                    '<p id="customWarning">Warning: Budget contains custom items. These will be deleted if you continue.<br /><button id="continueCustomWarning">Continue</button> <button id="cancelCustomWarning">Cancel</button> </p>' +
+                                    '<p><label for="printEmpty">Print empty items:</label> <input class="nosibling" type="checkbox" id="printEmpty" value="0"></p>' +
+                                    '</div></div><div class="input"><div class="item"><input class="nosibling" id="' + calcUserData.storageName + 'title" type="hidden" value="' + budgetPlanner.escapeHtml(budgetName) + '" /></div><div class="item"><input class="nosibling" id="MSuserDataBPlastUpdated" type="hidden" value="" /></div>';
+
+
+                                var category = '';
+                                for ( var i = 0; i < items.length; i++ ) {
+                                    if ( items[i].type === 'category' ) {
+                                        if ( i > 0 ) { html = html + '</div>' } // close the previous category div
+                                        category = items[i].label.replace(/[^A-Za-z\s]+/g, '').replace(/ {2,}/g,'-').toLowerCase();
+                                        html = html + '<div id="' + category + '" class="category"><h3 class="toggle">' + items[i].label + ' <span/></h3>';
+                                    }
+                                    else {
+                                        if ( typeof items[i].old == 'undefined' ) { items[i].old = '' }
+                                        html = html + '<div class="item core '+items[i].id+'"><label for="'+items[i].id+'">' + items[i].label + '</label><input inputmode="decimal" type="text" class="amount '+items[i].old+'" id="'+items[i].id+'"/><select id="'+items[i].id+'-freq" class="'+items[i].old+'"/><span class="total"/></div>'; }
+                                }
+                                html = html + '</div></div>';
+
+                                $(container).html(html);
+
+                                // add the summary
+                                html = '<div id="summary"><h3>Summary <span/></h3>'+
+                                    '<div id="budgetPlannerResult"/>'+
+                                    '</div>';
+                                $('.input').append(html);
+
+                                $('.category label').append(' <a href="javascript:void(0);" class="custom">[add]</a>');
+                                if ( useDecimals == 0 ) { $('.item input').addClass('int'); }
+                                else { $('.item input').addClass('float'); }
+
+                                $('.input select').html('<option value="52">Weekly</option><option value="26">Fortnightly</option><option value="12">Monthly</option><option value="4">Quarterly</option><option value="1">Annually</option>');
+                                $('.item, #budgetPlannerResult').hide(); // hide all the items on init
+                            },
+
+                            renderSettings: function () {
+                                var html = "";
+                                var disable = "";
+                                if(calcUserData.allowSave === false) {
+                                    disable = ' class="disable" ';
+                                    html = '<li class="listMsg">Enable autosave to create and save budgets</li>';
+                                }
+                                html += '<li' + disable + ' id="btnCalcCreate">Create new budget</li><li' + disable + ' id="btnCalcRename">Rename budget</li><li' + disable + ' id="btnCalcDelete">Delete my budget</li><li' + disable + ' id="btnCalcShare">Share my budget</li><li id="btnBudgetSettings">Settings</li>';
+                                return html;
+                            },
+
+                            renderProfiles: function (){
+                                //display existing budgets in settings menu to be able to open
+                                var html = '';
+                                var profiles = calcUserData.getProfiles();
+                                for(var i=0; i < profiles.length; i++){
+                                    var item = profiles[i].split("-");
+                                    var disable = "";
+                                    if((calcUserData.storageName + "-" + calcUserData.profileName) === profiles[i]) {
+                                        disable = ' class="disable"';
+                                    }
+                                    var profileData = calcUserData.getData(profiles[i]);
+                                    var lastUpdated = new Date(parseInt(profileData[calcUserData.storageName + 'lastUpdated']));
+                                    var dateStr = "";
+
+                                    if(typeof profileData[calcUserData.storageName + 'lastUpdated'] !== 'undefined') {
+                                        dateStr = "(" + lastUpdated.getDate() + '/' + (lastUpdated.getMonth() + 1) + '/' + lastUpdated.getFullYear() + ")";
+                                    }
+
+                                    html += "<li" + disable + " data-id='" + item[1] + "'>" + budgetPlanner.escapeHtml(profileData[calcUserData.storageName + 'title']) + " <span>" + dateStr + "</span></li>";
+                                }
+                                return html;
+                            },
+
+                            //display existing budgets in dropdown menu to be able to delete
+                            renderDeleteProfiles: function (){
+                                var html = "<option selected='selected'>Choose budget to delete</option>";
+                                var profiles = calcUserData.getProfiles();
+                                for(var i=0; i < profiles.length; i++){
+                                    var data = calcUserData.getData(profiles[i]);
+                                    var lastUpdated = new Date(parseInt(data[calcUserData.storageName + 'lastUpdated']));
+                                    var dateStr = "";
+                                    if(typeof data[calcUserData.storageName + 'lastUpdated'] !== 'undefined') {
+                                        dateStr = "(" + lastUpdated.getDate() + '/' + (lastUpdated.getMonth() + 1) + '/' + lastUpdated.getFullYear() + ")";
+                                    }
+
+                                    html += "<option value='" + profiles[i] + "'>" + budgetPlanner.escapeHtml(data[calcUserData.storageName + 'title']) + dateStr + "</option>";
+                                }
+                                return html;
+
+                            },
+
+                            // SUMMARY
+                            updateSummary: function (expenseInputted){
+
+                                // set the new totals
+                                totalIncome = budgetPlanner.cleanVal( $('#income h3 span').text() );
+                                totalHome = budgetPlanner.cleanVal( $('#home-utilities h3 span').text() );
+                                totalInsurance = budgetPlanner.cleanVal( $('#insurance-financial h3 span').text() );
+                                totalGroceries = budgetPlanner.cleanVal( $('#groceries h3 span').text() );
+                                totalPersonal = budgetPlanner.cleanVal( $('#personal-medical h3 span').text() );
+                                totalEntertainment = budgetPlanner.cleanVal( $('#entertainment-eatout h3 span').text() );
+                                totalTransport = budgetPlanner.cleanVal( $('#transport-auto h3 span').text() );
+                                totalChildren = budgetPlanner.cleanVal( $('#children h3 span').text() );
+                                totalNett = totalIncome - totalHome - totalInsurance - totalGroceries - totalPersonal - totalEntertainment - totalTransport - totalChildren;
+
+                                var situation = '(i.e Income: '+budgetPlanner.formatNumber(totalIncome, 0, useDecimals, true, useCurrency)+' vs Expenses: '+budgetPlanner.formatNumber(totalHome+totalInsurance+totalGroceries+totalPersonal+totalEntertainment+totalTransport+totalChildren, 0, useDecimals, true, useCurrency)+')';
+
+                                var html = '';
+                                if(expenseInputted) {
+                                    html = '<p>' + ($("#frequency option:selected").text() == 'Annually' ? 'Annual' : $("#frequency option:selected").text()) + ' spending breakdown:</p><div id="chart"/>';
+                                }
+                                if (totalNett > 0) { //surplus budget
+
+                                    html = '<h4 class="neutral">Congratulations!</h4><p>Your budget is in surplus. ' + situation + '</p><hr>' + html;
+                                    html = html + '<div class="next-steps"><h4>Next steps</h4><ul><li>Do a reality check: is your bank account going up each month? If the results don\'t match, see ' +
+                                        '<a target="_blank" href="/budgeting/track-your-spending">track your spending</a> to understand where your money goes.</li>' +
+                                        '<li>If you have money left over each month, think how best to use it – for example <a href="/saving">start a savings habit</a> ' +
+                                        'or use your extra income to <a target="_blank" href="/managing-debt/get-debt-under-control">get your debt under control</a>.</li></ul></div>';
+
+                                } else if (totalNett == 0) { //neutral budget
+                                    html = '<h4 class="neutral">You are spending everything you earn.</h4><hr>' + html;
+                                    html = html + '<div class="next-steps"><h4>Next steps</h4><ul><li>Consider reducing your spending and save some money each period. Work back through the budget planner to see where you could cut down on spending.</li>' +
+                                        '<li>Do a reality check: is your bank account going up each month? If the results don\'t match, see ' +
+                                        '<a target="_blank" href="/budgeting/track-your-spending">track your spending</a> to understand where your money goes.</li></ul></div>';
+                                } else { // deficit
+                                    html = '<h4 class="deficit">You are spending more than you earn. ' + situation + '</h4><hr>' + html;
+                                    html = html + '<div class="next-steps"><h4>Next steps</h4><ul><li>Consider reducing your spending so you can save some money each period. Work back through the budget planner to see where you could cut down on spending.</li>' +
+                                        '<li>Do a reality check: is your bank account going up each month? If the results don\'t match, see ' +
+                                        '<a target="_blank" href="/budgeting/track-your-spending">track your spending</a> to understand where your money goes.</li></ul></div>';
+                                }
+
+                                //add calendar reminder
+                                var deviceStr = budgetPlanner.getDevice();
+                                if(deviceStr !== "") {
+                                    deviceStr = " (" + deviceStr + ") ";
+                                }
+
+                                var d = new Date();
+                                var d2 = new Date();
+                                d.setMonth(d.getMonth() + 3);
+                                d2.setMonth(d2.getMonth() + 3);
+                                d2.setDate(d2.getDate() + 1);
+                                d = d.toISOString().slice(0, 10).replace(/-/g, '');
+                                d2 = d2.toISOString().slice(0, 10).replace(/-/g, '');
+
+                                var icalLink = moneysmartjs.createCalLink('ical', 'Review my Moneysmart budget', 'How you spend and save your money can change over time. That\'s why it\'s a great idea to revisit your budget regularly. \\n\\nReview your Moneysmart budget at ' + 'https://moneysmart.gov.au/budgeting/budget-planner?utm_source=moneysmart&utm_medium=reminder&utm_campaign=1' + '. \\n\\nIf you\'re not ready to review your budget yet, move this calendar reminder to a more suitable time. \\n\\n\\nNote: Your Moneysmart budget was saved locally on your device' + deviceStr + ' so be sure to use the same device you used to create your budget initially.', d, d2);
+                                icalLink = icalLink.replace('data:text/calendar;charset=utf-8,', '');
+                                var googleLink = moneysmartjs.createCalLink('google', 'Review my Moneysmart budget', 'How you spend and save your money can change over time. That\'s why it\'s a great idea to revisit your budget regularly.%0A%0AReview your Moneysmart budget at ' + encodeURIComponent('https://moneysmart.gov.au/budgeting/budget-planner?utm_source=moneysmart&utm_medium=reminder&utm_campaign=1') + ' %0A%0AIf you\'re not ready to review your budget yet, move this calendar reminder to a more suitable time. %0A%0A%0ANote: Your Moneysmart budget was saved locally on your device' + deviceStr + ' so be sure to use the same device you used to create your budget initially.', d, d2);
+                                var icalLink_base64=window.btoa(icalLink);
+                                icalLink_base64 = 'data:text/calendar;base64,'+icalLink_base64;
+
+                                html = html + '<div class="calendar"><span>Remind me to review my budget in 3 months</span> <div class="innerCalendar"><button id="btnAddCalendar">Add to calendar</button>';
+                                html = html + '<div id="calendarPicker"><ul><li><a id="cal-apple" href="' + icalLink_base64 + '">Apple</a></li><li><a target="_blank" id="cal-google" href="' + googleLink + '">Google</a></li><li><a id="cal-outlook" href="' + icalLink_base64 + '">Outlook</a></li></ul></div></div></div>';
+
+                                $('#budgetPlannerResult').html(html);
+
+
+                                if(expenseInputted) {
+
+                                    var spendingData = [
+                                        ['Home & utilities', totalHome],
+                                        ['Insurance & financial', totalInsurance],
+                                        ['Groceries', totalGroceries],
+                                        ['Personal & medical', totalPersonal],
+                                        ['Entertainment & eat-out', totalEntertainment],
+                                        ['Transport & auto', totalTransport],
+                                        ['Children', totalChildren]
+                                    ];
+                                    budgetPlanner.drawSpendingChart(spendingData);
+                                }
+                            },
+
+
+                            // CUSTOM CHILD ITEMS
+                            child: function (parent, id, label, amount, frequency) {
+                                //generate unique ID of custom-[parent]-[name] if creating new
+                                if ( typeof id == 'undefined' ) {
+                                    id = "custom-" + parent + "-";
+                                    var uid = new Date();
+                                    uid = uid.getTime().toString().substr(-5); //id generated from last 5 digits of current time
+                                    id = id + uid;
+                                    label = '';
+                                    amount = '';
+                                }
+                                var html = '<div class="item child ' + id + '">'+
+                                    '<label><input type="text" class="name" placeholder="click to add item label" value="'+label+'" id="'+id+'-label"><a class="delete-item" href="javascript:void(0);" title="Remove this item">Delete</a></label>'+
+                                    '<input type="text" inputmode="decimal" class="amount" id="'+id+'" value="'+amount+'">'+
+                                    '<select id="'+id+'-freq"><option value="52">Weekly</option>'+
+                                    '<option value="26">Fortnightly</option><option value="12">Monthly</option>'+
+                                    '<option value="4">Quarterly</option><option value="1">Annually</option></select>'+
+                                    '<span class="total"></span></div>';
+                                return html;
+                            },
+
+                            restoreChild: function(parent, id, label, amount, frequency) {
+                                var html = budgetPlanner.child(parent, id, label, amount, frequency);
+                                $( '.item.core.'+parent ).after( html );
+                                $( '.item.core.'+parent ).find('input, select, span').addClass('hide'); // hide the inputs from the parent
+                                $('#'+id+'-freq').val(frequency);
+                                $('.delete-item').hide();
+                                if ( !$( '.item.core.'+parent ).is(':visible') ) { $( '.item.child.'+id ).hide(); }
+                            },
+
+
+                            // CALCULATIONS
+                            UpdateBudget: function(save){
+
+                                //check what frequency we want the summary and totals to be
+                                var frequency = 1;
+                                frequency = parseInt( $('#frequency').val() );
+
+                                if (usePrintEmpty === 1) {
+                                    $('#printEmpty').prop('checked', true); $('#budgetPlanner').addClass("printall");
+                                }else{
+                                    $('#printEmpty').prop('checked', false);
+                                }
+                                if ( useDecimals == 2 ) {
+                                    $('#cents').prop('checked', true);
+                                }else{
+                                    $('#cents').prop('checked', false);
+                                }
+                                if ( useCustomCategories == 1 ) {
+                                    $('#customCategories').prop('checked', true); $('a.custom').show();
+                                }
+                                else {
+                                    $('#customCategories').prop('checked', false);
+                                    $('a.custom').hide();
+                                }
+
+                                var itemTotal = 0;
+                                var categoryTotal = 0;
+                                var summaryTotal = 0;
+                                var valueInputted = false;
+                                var expenseInputted = false;
+                                var expenseCount = 0;
+                                var incomeCount = 0;
+
+                                $( '.category' ).each(function( index ) {
+                                    categoryTotal = 0;
+                                    this.dataset.hasValue = "0";
+                                    var category = this.id;
+
+                                    $('#'+category+' .item input.amount:not(.hide)').each(function( i) {
+                                        $(this).parent().closest('div').attr('data-has-value', '0');
+                                        var amount = budgetPlanner.cleanVal(this.value);
+                                        itemTotal =  amount * $(this).next('select').val() / frequency;
+                                        categoryTotal = categoryTotal + itemTotal; // running total per category
+                                        if ( itemTotal > 0 ) { itemTotal = budgetPlanner.formatNumber(itemTotal, 0, useDecimals, true, useCurrency) }
+                                        else { itemTotal = '' }
+                                        $(this).nextAll('span.total').text( itemTotal );
+                                        // make this value in the input look pretty
+                                        if ( amount > 0 ) {
+                                            document.getElementById(category).dataset.hasValue = "1";
+                                            $(this).parent().closest('div').attr('data-has-value', '1');
+                                            if($(this).parent().closest('div').hasClass('child')){
+                                                $(this).parent().closest('div').prev().attr('data-has-value', '1');
+                                            }
+                                            valueInputted = true;
+                                            if (index > 0) {
+                                                expenseInputted = true;
+                                                expenseCount++;
+                                            }else {
+                                                incomeCount++;
+                                            }
+                                            $(this).val( budgetPlanner.formatNumber(amount, 0, useDecimals, true) );
+                                        }
+                                    });
+
+                                    if ( index < 1 ) { summaryTotal  = summaryTotal + categoryTotal; }  // income
+                                    else { summaryTotal  = summaryTotal - categoryTotal; } // expenses
+
+                                    if ( index > 0 && categoryTotal > 0 ) { categoryTotal = -categoryTotal; }
+                                    $(this).find('h3 span').text( budgetPlanner.formatNumber(categoryTotal, 0, useDecimals, true, useCurrency) );
+                                });
+
+                                $('#summary h3 span').removeClass('negative');
+                                $('#summary h3 span').text( budgetPlanner.formatNumber(summaryTotal, 0, useDecimals, true, useCurrency) );
+                                if ( summaryTotal < 0 ) { $('#summary h3 span').addClass('negative'); }
+
+                                if ( valueInputted && $( '#budgetPlannerResult' ).is(':visible') == false ) {
+                                    $('#budgetPlannerResult').slideToggle();
+                                }
+
+
+                                if ( $( '#budgetPlannerResult' ).is(':visible') ) { budgetPlanner.updateSummary(expenseInputted); }
+                                if(incomeCount >=1 && expenseCount >= 3){
+                                    //mark calculator complete if 1 income and 3 expenses have been entered
+                                    dataLayer.push({ event: 'calculatorCompleted' });
+                                }
+
+                                //refresh what dataFields exist
+                                calcUserData.dataFields = document.querySelectorAll( '.calculator .item input, #bpSettings input' );
+
+                                if(save && calcUserData.allowSave) {
+                                    $('#MSuserDataBPlastUpdated').val(Date.now());
+                                    calcUserData.save();
+                                    if(profiles.length == 0){
+                                        profiles = calcUserData.getProfiles();
+                                    }
+                                    budgetPlanner.displayToast('Saved', 2000);
+                                    $('#MSuserDataBPlastUpdated').trigger('change');
+                                }
+
+                                // accessibility fix
+                                $('.category > h3').attr( {"tabindex":"0", "role":"button"} );
+                                $('#settingsPopup li').attr( {"tabindex":"0", "role":"button"} );
+                            },
+
+
+                            drawSpendingChart: function(spendingData){
+                                var chart_align = "right";
+                                var chart_verticalAlign = "top";
+                                var chart_height = null;
+                                if (window.innerWidth < 768) {
+                                    chart_align = "center";
+                                    chart_verticalAlign = "bottom";
+                                    chart_height = "700px";
+                                }
+                                var chart;
+                                chart = new Highcharts.Chart({
+                                    chart:{ renderTo: 'chart', type:'pie', height: chart_height },
+                                    colors: [ '#164cec', '#1d1444', '#383c77', '#c1c6df', '#b8e7f8', '#d3ebed', '#a7bbf4' ],
+                                    credits:{enabled: false},
+                                    title:{text: null},
+                                    plotOptions: {
+                                        pie: {
+                                            allowPointSelect: true,
+                                            cursor: 'pointer',
+                                            showInLegend: true,
+                                            dataLabels: { enabled: false, formatter: function() { return this.percentage.toFixed(2) + '%'; } } }
+                                    },
+                                    legend: {
+                                        enabled: true,
+                                        layout: 'vertical',
+                                        align: chart_align,
+                                        verticalAlign: chart_verticalAlign,
+                                        borderWidth: 1,
+                                        borderColor: "#e1e1e1",
+                                        itemMarginTop: 10,
+                                        itemMarginBottom: 10,
+                                        padding: 24,
+                                        itemStyle: { fontSize: '.9rem', fontWeight: 'normal', color: '#333333', fontFamily: '\'Montserrat\', sans-serif' },
+                                        useHTML: true,
+                                        labelFormatter: function(){ return this.name +': '+ useCurrency + budgetPlanner.formatNumber(this.y, 0, useDecimals, true) }
+                                    },
+                                    tooltip: {
+                                        formatter: function() {
+                                            return '<b>'+ this.point.name +'</b>:<br/>'+  useCurrency + budgetPlanner.formatNumber(this.point.y, 0, useDecimals, true) + ' ('+this.percentage.toFixed(2)+'%)';
+                                        }
+                                    },
+                                    series: [{
+                                        type: 'pie',
+                                        name: 'Spending',
+                                        data: spendingData
+                                    }]
+                                });
+                            },
+
+                            cleanVal: function(v){
+                                if ( typeof v == 'undefined' ) { v = 0 }
+                                v = v.replace(/[^0-9.]/g, '');
+                                if ( isNaN(v) || v.length < 1 ) { v = 0 }
+                                return parseFloat(v);
+                            },
+
+                            convertFrequency: function (freq){
+                                switch(freq){
+                                    case 1:
+                                        return 'annually'
+                                        break;
+                                    case 4:
+                                        return 'quarterly'
+                                        break;
+                                    case 12:
+                                        return 'monthly'
+                                        break;
+                                    case 26:
+                                        return 'fortnightly'
+                                        break;
+                                    case 52:
+                                        return 'weekly'
+                                        break;
+                                }
+                            },
+
+                            formatNumber: function(number, digits, decimalPlaces, withCommas, denomination) {
+                                var negative = false;
+                                if ( number < 0 ) { negative = true; }
+                                if (  denomination == undefined ) { denomination = ''; }
+
+                                number       = number.toString();
+                                var simpleNumber = '';
+
+                                // Strips out the dollar sign and commas.
+                                for (var i = 0; i < number.length; ++i) {
+                                    if ("0123456789.".indexOf(number.charAt(i)) >= 0)
+                                        simpleNumber += number.charAt(i);
+                                }
+
+                                number = parseFloat(simpleNumber);
+
+                                if (isNaN(number))      number     = 0;
+                                if (withCommas == null) withCommas = false;
+                                if (digits     == 0)    digits     = 1;
+
+                                var integerPart = (decimalPlaces > 0 ? Math.floor(number) : Math.round(number));
+                                var string      = "";
+
+                                for (var i = 0; i < digits || integerPart > 0; ++i) {
+                                    // Insert a comma every three digits.
+                                    if (withCommas && string.match(/^\d\d\d/))
+                                        string = "," + string;
+
+                                    string      = (integerPart % 10) + string;
+                                    integerPart = Math.floor(integerPart / 10);
+                                }
+
+                                if (decimalPlaces > 0) {
+                                    number -= Math.floor(number);
+                                    number *= Math.pow(10, decimalPlaces);
+
+                                    string += "." + budgetPlanner.formatNumber(number, decimalPlaces, 0);
+                                }
+
+                                string = denomination + string;
+                                if ( negative ) { string = '-' + string; }
+
+                                return string;
+                            },
+
+                            trackApp: function (action, label){
+                                moneysmartjs.trackEvent('Calculator - '+calcUserData.calculatorName, action, label, 0, true);
+                            },
+
+                            launchBPFromWizard: function (userResponses) { // called on competition of wizard
+                                if(userResponses !== null){
+                                    customiseBP(userResponses);
+                                    budgetPlanner.trackApp("Wizard", "Complete");
+                                }
+                                else{ // wizard skiped
+                                    $('#budgetPlannerWizard, #calculator-container').toggle();
+                                    budgetPlanner.trackApp("Wizard", "Skipped");
+                                }
+                            },
+
+                            customiseBP: function(userResponses){
+                                var itemsToHide = [];
+                                if ( userResponses.maritalStatus == 'single' ) {
+                                    itemsToHide.push("income2");
+                                }
+                                if ( userResponses.hasChildren == 'false' ) {
+                                    itemsToHide.push("income6", "income7", "children1", "children2", "children3", "children4", "children5", "children6", "children7", "children8", "children9", "children10", "childrenOther");
+                                }
+                                if ( userResponses.hasInvestments == 'false' ) {
+                                    itemsToHide.push("income4");
+                                }
+                                if ( userResponses.hasCar == 'false' ) {
+                                    itemsToHide.push("insurance1", "insurance5", "transport2", "transport3", "transport4", "transport5", "transport6");
+                                }
+                                if ( userResponses.hasMortgage == 'false' ) {
+                                    itemsToHide.push("home2", "home3", "home5");
+                                }
+                                if ( userResponses.hasLoan == 'false' ) {
+                                    itemsToHide.push("insurance6", "insurance7", "insurance8");
+                                }
+                                if ( userResponses.hasPrivateHealth == 'false' ) {
+                                    itemsToHide.push("insurance4");
+                                }
+                                if ( userResponses.hasMedicalExpenses == 'false' ) {
+                                    itemsToHide.push("personal3", "personal4", "personal5", "personal6");
+                                }
+                                if ( userResponses.hasPets == 'false' ) {
+                                    itemsToHide.push("groceries6", "personal13");
+                                }
+                                for (var i in itemsToHide) { // remove the relevant items
+                                    // only remove fields if there isn't already data assigned
+                                    if ( $("#"+itemsToHide[i]).val().length < 1 ) { $( ".item."+itemsToHide[i] ).remove(); }
+                                }
+                                // special case
+                                if ( $('#children .item').length < 1 ) {
+                                    $('#children').remove();
+                                } // if there are no children items just remove the entire category
+                                $('#budgetPlannerWizard, #calculator-container').toggle();
+                            }
+
+                        };
+                        budgetPlanner.init();
+                    }
+
+                );
+
+            }
+            else{
+                tries--;
+                console.log('MS Scripts not loaded...');
+            }
+        }
+        else{
+            clearInterval(nIntervId);
+        }
+    }
+    function serializeData(container){
+        changeCount++;
+        var data='';
+        var inputs=container.querySelectorAll('input,select');
+        inputs.forEach(function(input) {
+            var inputVal = input.value;
+            if(input.classList.contains('dollars')){
+                inputVal = inputVal.replace( /\D+/g, '');
+            }
+            data += inputVal + '|';
+        });
+        data += changeCount.toString();
+        window.dataLayer.push({
+            'budgetPlannerCalcData': data
+        });
+
+    }
+
+    loadBudgetPlannerCalcTimer();
+</script>        <!-- End app -->
+<div class="accordian">
+<div class="accordianRow closed">
+<div class="accordianTitle">
+<h2><a id="further"></a>Further information</h2>
+<button class="accordianRowToggle">toggle accordian row</button></div>
+<div class="accordianRowContent">
+<p>This calculator helps you work out where your money is going, and whether your income covers your expenses.</p>
+<ul>
+<li><strong>Frequency:</strong> Set payment frequency for each item — weekly, fortnightly, monthly, quarterly or annually. (Note: your results will be skewed if you don't set the right payment frequency.)</li>
+<li><strong>Documentation required:</strong> For a more accurate picture of your finances, check your payslip for any deductions made in addition to tax (like superannuation, health insurance, company car). Add these amounts back into your income, then include them in your expenses.</li>
+<li><strong>Autosave option:</strong> Your budget data is automatically saved onto your computer or mobile device, so you can come back to it later. Your data may be lost if you change your device or clear your cache. Disable the autosave function by switching to "off". </li>
+<li><strong>Save the budget spreadsheet:</strong> Save your budget to your computer by using the Excel spreadsheet version. The <a href="https://files.moneysmart.gov.au/media/vxudqwql/budget-planner_moneysmart.xls" title="Budget Planner Moneysmart">Excel spreadsheet</a> version allows for some customising (like renaming fields). If you save it to your cloud storage, you can access it from multiple devices or share it with your partner.</li>
+<li><strong>Print:</strong> You can print your results.</li>
+</ul>
+</div>
+</div>
+
+</div>	</div>
+</main>
+<aside class="feedback">
+    <div>
+
+        <div role="group" aria-labelledby="feedback-useful" class="question">
+            <div id="feedback-useful">Do you find this page useful?</div>
+            <div>
+                <input type="radio" name="feedback-useful" id="feedback-yes" value="Yes">
+                <label for="feedback-yes">Yes</label>
+            </div>
+            <div>
+                <input type="radio" name="feedback-useful" id="feedback-no" value="No">
+                <label for="feedback-no">No</label>
+            </div>
+        </div>
+
+        <div role="group" aria-labelledby="feedback-whyyes" id="feedbackyes" class="feedbacksurvey hidden">
+            <div id="feedback-whyyes">Why?</div>
+            <div>
+                <input type="checkbox" name="feedback-whyyes" id="feedback-yes1" value="It had the information I was looking for">
+                <label for="feedback-yes1">It had the information I was looking for</label>
+            </div>
+            <div>
+                <input type="checkbox" name="feedback-whyyes" id="feedback-yes2" value="The page makes sense">
+                <label for="feedback-yes2">The page makes sense</label>
+            </div>
+            <div>
+                <input type="checkbox" name="feedback-whyyes" id="feedback-yes3" value="The information is balanced and unbiased">
+                <label for="feedback-yes3">The information is balanced and unbiased</label>
+            </div>
+            <div>
+                <input type="checkbox" name="feedback-whyyes" id="feedback-yes4" value="The information gave me a sense of what to do next">
+                <label for="feedback-yes4">The information gave me a sense of what to do next</label>
+            </div>
+            <div class="buttons">
+                <button type="button" class="submit">Submit</button>
+                <button type="button" class="other">Any other feedback</button>
+            </div>
+        </div>
+
+        <div role="group" aria-labelledby="feedback-whyno" id="feedbackno" class="feedbacksurvey hidden">
+            <div id="feedback-whyno">Why not?</div>
+            <div>
+                <input type="checkbox" name="feedback-whyno" id="feedback-no1" value="It didn't have the information I was looking for">
+                <label for="feedback-no1">It didn't have the information I was looking for</label>
+            </div>
+            <div>
+                <input type="checkbox" name="feedback-whyno" id="feedback-no2" value="The page was confusing">
+                <label for="feedback-no2">The page was confusing</label>
+            </div>
+            <div>
+                <input type="checkbox" name="feedback-whyno" id="feedback-no3" value="The information overwhelmed me">
+                <label for="feedback-no3">The information overwhelmed me</label>
+            </div>
+            <div>
+                <input type="checkbox" name="feedback-whyno" id="feedback-no4" value="There wasn't enough information for me to take action">
+                <label for="feedback-no4">There wasn't enough information for me to take action</label>
+            </div>
+            <div class="buttons">
+                <button type="button" class="submit">Submit</button>
+                <button type="button" class="other">Any other feedback</button>
+            </div>
+        </div>
+
+        <div role="group" aria-labelledby="feedback-your" id="feedbacktriage" class="hidden">
+            <div id="feedback-your">Your feedback</div>
+            <div>
+                <label for="feedbackrelates">Your feedback relates to:</label>
+                <select name="feedbackrelates" id="feedbackrelates">
+                    <option selected>Please select...</option>
+                    <option value="content">Webpage Content</option>
+                    <option value="calculator">Calculator or tool</option>
+                    <option value="complaint">Complaint or scam</option>
+                    <option value="other">Copyright requests</option>
+                    <option value="loans">Loans, money and personal finance advice</option>
+                    <option value="other">Other feedback/suggestion</option>
+                </select>
+            </div>
+            <div class="hidden feedbackdetails" id="feedbackcontent">
+                <label for="feedbackaction">You would like to:</label>
+                <select name="feedbackaction" id="feedbackaction">
+                    <option selected value="0">Please select...</option>
+                    <option value="1">Report an Error</option>
+                    <option value="1">Comment on a Webpage</option>
+                    <option value="1">Ask a question</option>
+                </select>
+            </div>
+            <div class="hidden feedbackdetails" id="feedbackcalculator">
+                <label for="feedbackissue">Your issue is:</label>
+                <select name="feedbackissue" id="feedbackissue">
+                    <option selected value="0">Please select...</option>
+                    <option value="1">You don't understand the calculator result</option>
+                    <option value="2">You believe the calculator is incorrect</option>
+                    <option value="3">The calculator/tool does not work (eg technical issue)</option>
+                    <option value="4">You want to provide general feedback/suggestions</option>
+                </select>
+            </div>
+            <div class="hidden feedbackdetails" id="calcdontunderstand">
+                <div class="standardText"><ul>
+<li>
+<p><strong>Calculator disclaimers and assumptions </strong>can be found under each calculator. Refer to these for more detailed information about how a specific calculator works.</p>
+</li>
+<li>
+<p><strong>Calculator frequently asked questions</strong> can be found under most calculators. Refer to these for more information.</p>
+</li>
+</ul></div>
+            </div>
+            <div class="hidden feedbackdetails" id="feedbackcomplaint">
+                <div class="standardText"><p>The links below provide more information on complaints and reporting scams:</p>
+<ul>
+<li><a href="/how-to-complain" title="How to complain">Complain about a financial product or service</a></li>
+<li><a href="/check-and-report-scams/what-to-do-if-you-ve-been-scammed" title="Report a scam">Report a scam</a></li>
+<li><a href="https://asic.gov.au/about-asic/contact-us/how-to-complain/" title="ASIC - how to complain">Report misconduct to ASIC</a></li>
+</ul></div>
+            </div>
+            <div class="hidden feedbackdetails" id="feedbackloans">
+                <div class="standardText"><p>We don't lend money, arrange loans or provide personal financial advice.</p>
+<p>If you are experiencing difficulties with money, the following pages can help:</p>
+<ul>
+<li><a href="/managing-debt/urgent-help-with-money" title="Urgent help with money">Urgent help with money</a></li>
+<li><a href="/loans/no-interest-loans" title="No or low interest loans">No or low interest loans</a></li>
+<li><a href="/managing-debt/problems-paying-your-bills-and-fines" title="Problems paying your bills and fines">Problems paying your bills or fines</a></li>
+<li><a href="/home-loans/problems-paying-your-mortgage" title="Problems paying your mortgage">Problems paying your mortgage</a></li>
+<li><a href="/managing-debt/financial-counselling" title="Financial counselling">Find a financial counsellor</a></li>
+</ul></div>
+            </div>
+            <div class="hidden feedbackdetails" id="comments">
+                <div>
+                    <label for="feedbacksummary">Summary of your feedback (helps us respond faster):</label>
+                    <input type="text" name="feedbacksummary" id="feedbacksummary">
+                </div>
+                <div>
+                    <label for="feedbackcomments">Your comments:</label>
+                    <textarea name="feedbackcomments" id="feedbackcomments"></textarea>
+                </div>
+                <div>
+                    <label for="feedbackurl">The page/calculator/app you are referring to (eg. cut/paste URL):</label>
+                    <input type="text" name="feedbackurl" id="feedbackurl">
+                </div>
+                <div>
+                    <label for="feedbackemail">Your email address: (if you require a reply)</label>
+                    <input type="email" name="feedbackemail" id="feedbackemail">
+                </div>
+                <div class="buttons">
+                    <button type="button" class="cancel">Cancel</button>
+                    <button type="button" class="submit sendfeedback">Send feedback</button>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+<script>
+  if ('serviceWorker' in navigator) {
+      window.addEventListener('load', function() {
+          navigator.serviceWorker.register("{% static 'service-worker' %}")
+              .then(function(registration) {
+                  console.log('Service Worker registered with scope:', registration.scope);
+              })
+              .catch(function(error) {
+                  console.log('Service Worker registration failed:', error);
+              });
+      });
+  }
+</script>
+
+
+<script>
+    // setup this page as a product
+    var eecProduct = { 		
+        'name': 'Budget planner',     
+        'id': '1493', 	
+        'price': '1',
+        'brand': 'Banking and budgeting', 	
+        'category': 'Banking and budgeting' + '|' + 'Budgeting', 	
+        'variant': '', 	
+        'quantity': 1 
+    }
+    var eecPageType = 'calculator';
+    var eecPurchaseType = 'dwell'; // default
+    if (document.querySelectorAll('.youtubeEmbed').length > 0){ eecPurchaseType = 'video' } 
+    if (document.querySelectorAll('.calculatorLink').length > 0){ eecPurchaseType = 'calculatorLink' }
+    if (document.querySelectorAll('.cta').length > 0){ eecPurchaseType = 'cta' } 
+    if (eecPageType === 'calculator'){ eecPurchaseType = 'calculator' } 
+    if (eecPageType === 'starter-pack' || eecPageType === 'hub' || eecPageType === 'glossary' || eecPageType === 'company'){ /* no eec goal for these pages */ } 
+    else { dataLayer.push({ event: 'eecGoal', eecPurchaseType: eecPurchaseType  }); }
+    
+    // add tags
+    var MStags = [];
+    
+</script>
+<script type="application/ld+json">
+{  
+   "@context":"http://schema.org",
+   "@type":"Organization",
+   "name":"Moneysmart",
+   "url":"https://moneysmart.gov.au",
+   "logo":"https://static.moneysmart.gov.au/nextgen/img/header-logo-color.svg",
+   "sameAs":[  
+      "https://twitter.com/moneysmartteam",
+      "https://www.youtube.com/user/MoneySmartAu",
+      "https://www.facebook.com/MoneySmartAu" 
+   ]
+}
+</script>
+</body>
+</html>

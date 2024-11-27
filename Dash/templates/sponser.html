@@ -1,0 +1,52 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block main %}
+<div class="container ">
+    <h2 class="text-center mb-4">Our Sponsors</h2>
+    <p class="text-center text-muted mb-5">
+        Explore trusted financial services provided by our sponsors. Learn about insurance and mutual fund investment options tailored to your needs.
+    </p>
+    <p class="text-muted text-center mb-4">
+        Life is unpredictable, but your financial security doesn’t have to be.  
+        <strong>XYZ Insurance</strong> offers comprehensive plans to safeguard your family’s future, health, and assets.  
+        With affordable premiums and exceptional claim support, we are your trusted partner in times of need.  
+        Over 1 million customers rely on us for peace of mind. Why wait?  
+        Protect what matters most today with XYZ Insurance.  
+    </p>
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <!-- Sponsor Card 1 -->
+        <div class="col">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <img src="{% static 'img/xyx.png' %}" alt="XYZ Insurance" class="img-fluid mb-3 rounded-circle">
+                    <h5 class="card-title fw-bold">XYZ Insurance</h5>
+                    <p class="card-text text-muted">Comprehensive insurance plans for life, health, and more.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sponsor Card 2 -->
+        <div class="col">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <img src="{% static 'img/abc.png' %}" alt="ABC Mutual Funds" class="img-fluid mb-3 rounded-circle">
+                    <h5 class="card-title fw-bold">ABC Mutual Funds</h5>
+                    <p class="card-text text-muted">Achieve your financial goals with our trusted mutual funds.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+        <!-- Sponsor Card 3 -->
+        <div class="col">
+            <div class="card border-0 shadow-sm h-100">
+                <div class="card-body text-center">
+                    <img src="{% static 'img/pqr.png' %}" alt="PQR Investments" class="img-fluid mb-3 rounded-circle">
+                    <h5 class="card-title fw-bold">PQR Investments</h5>
+                    <p class="card-text text-muted">Smart investment options for a secure financial future.</p>
+                    <a href="#" class="btn btn-primary">Learn More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

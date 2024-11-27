@@ -1,0 +1,87 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block main %}
+<h1 class="text-center">Invest Page</h1>
+<div class="container">
+    <div class="row g-4">
+        <!-- Investment Form -->
+        <div class="col-12 col-md-6">
+            <div class="card shadow p-4 rounded-3 h-100">
+                <form method="POST" action="/invest">
+                    {% csrf_token %}
+                    <!-- Stock Type Selection -->
+                    <div class="mb-3">
+                        <label for="stock-type" class="form-label">Select Stock Type</label>
+                        <select id="stock-type" name="stock_type" class="form-select shadow-sm" required>
+                            <option value="" disabled selected>Choose...</option>
+                            <option value="equity">Equity</option>
+                            <option value="mutual_funds">Mutual Funds</option>
+                            <option value="bonds">Bonds</option>
+                            <option value="commodities">Commodities</option>
+                            <option value="forex">Forex</option>
+                            <option value="crypto">Cryptocurrency</option>
+                        </select>
+                    </div>
+
+                    <!-- Trading Options -->
+                    <div class="mb-3">
+                        <label for="trading-option" class="form-label">Choose Trading Option</label>
+                        <select id="trading-option" name="trading_option" class="form-select shadow-sm" required>
+                            <option value="" disabled selected>Choose...</option>
+                            <option value="day_trading">Day Trading</option>
+                            <option value="swing_trading">Swing Trading</option>
+                            <option value="long_term">Long-Term Investing</option>
+                            <option value="options_trading">Options Trading</option>
+                            <option value="futures_trading">Futures Trading</option>
+                        </select>
+                    </div>
+
+                    <!-- Investment Amount -->
+                    <div class="mb-3">
+                        <label for="investment-amount" class="form-label">Investment Amount</label>
+                        <div class="input-group shadow-sm">
+                            <span class="input-group-text">$</span>
+                            <input type="number" id="investment-amount" name="investment_amount" class="form-control" min="1" placeholder="Enter amount" required>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary rounded-pill shadow-sm">Invest Now</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <!-- TradingView Widget -->
+        <div class="col-12 col-md-6">
+            <div class="card shadow p-1 rounded-3 h-100">
+                <!-- TradingView Widget BEGIN -->
+                <div class="tradingview-widget-container" style="height:100%;width:100%">
+                    <div class="tradingview-widget-container__widget" style="height:calc(100% - 32px);width:100%"></div>
+                    <div class="tradingview-widget-copyright">
+                        <a href="https://www.tradingview.com/" rel="noopener nofollow" target="_blank">
+                            <span class="blue-text">Track all markets on TradingView</span>
+                        </a>
+                    </div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                    {
+                    "autosize": true,
+                    "symbol": "NASDAQ:AAPL",
+                    "interval": "D",
+                    "timezone": "Etc/UTC",
+                    "theme": "dark",
+                    "style": "1",
+                    "locale": "en",
+                    "allow_symbol_change": true,
+                    "calendar": false,
+                    "support_host": "https://www.tradingview.com"
+                    }
+                    </script>
+                </div>
+                <!-- TradingView Widget END -->
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

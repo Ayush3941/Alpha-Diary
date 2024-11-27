@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block main %}
+<div class="card shadow-lg p-3" style="border-radius: 15px; width: 100%; max-width: 750px;">
+    <form method="POST" action="/add_budget">
+    	{% csrf_token %}
+        <div class="mb-2">
+            <label for="id" class="form-label" style="font-size: 0.9rem;">ID</label>
+            <input type="text" id="id" name="id" class="form-control form-control-sm" placeholder="Enter ID" value="{{ ID }}" required>
+        </div>
+        <div class="mb-2">
+            <label for="amount" class="form-label" style="font-size: 0.9rem;">Amount</label>
+            <input type="number" id="amount" name="amount" class="form-control form-control-sm" placeholder="Enter Amount" value="{{ AMOUNT }}" required>
+        </div>
+        <div class="mb-2">
+            <label for="status" class="form-label" style="font-size: 0.9rem;">Status</label>
+            <input type="text" id="status" name="status" class="form-control form-control-sm" placeholder="Enter Status" value="{{ STATUS }}" required>
+        </div>
+        <div class="mb-2">
+            <label for="reference-id" class="form-label" style="font-size: 0.9rem;">Reference ID</label>
+            <input type="text" id="reference-id" name="reference_id" class="form-control form-control-sm" placeholder="Enter Reference ID" value="{{ REF }}" required>
+        </div>
+        <div class="mb-2">
+            <label for="budget-name" class="form-label" style="font-size: 0.9rem;">Budget Name</label>
+            <input type="text" id="budget-name" name="budget_name" class="form-control form-control-sm" placeholder="Enter Budget Name" value="Savings" required>
+        </div>
+        <div class="d-grid">
+            <button type="submit" class="btn btn-primary btn-sm rounded-pill">Submit</button>
+        </div>
+    </form>
+</div>
+
+
+
+{% endblock %}

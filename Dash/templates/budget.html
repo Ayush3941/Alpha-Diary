@@ -1,0 +1,40 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block main %}
+<div class="container my-4">
+    <div class="text-center">
+        <h3 class="display-4 fw-bold">Budget Management</h3>
+        <p class="text-muted">
+            Welcome to your Budget Management Dashboard. Plan, track, and optimize your finances efficiently.
+            Create new budgets, review expenses, and gain insights into your financial goals—all in one place.
+        </p>
+    </div>
+    <div class="row">
+        {% for budget in budgets %}
+            <div class="col-md-7 mb-4" style = "width:97%">
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ budget.name }}</h5>
+                        <h6 class="card-text">Amount: Rs:: {{ budget.number }}</h6>
+                        <form method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="budget_name" value="{{ budget.name }}">
+    <div class="input-group">
+        <input 
+            type="number" 
+            class="form-control" 
+            name="balance" 
+            placeholder="Enter amount to add" 
+            required 
+            style="padding: 4px 10px; line-height: 1.2;">
+        <button type="submit" class="btn btn-outline-success">Add Balance</button>
+    </div>
+</form>
+
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

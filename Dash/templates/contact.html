@@ -1,0 +1,63 @@
+{% extends 'layout.html' %}
+{% load static %}
+{% block main %}
+<div class="container my-4">
+    <div class="text-center">
+        <h3 class="display-4 fw-bold">Contact Us</h3>
+        <p class="text-muted">
+            We're here to help! Reach out to us for any questions, feedback, or support. 
+            Whether you're experiencing issues or simply have suggestions, our team is ready to assist you.
+        </p>
+    </div>
+</div>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="row mt-4 mb-4 " >
+                <div class="col-sm-6 border border shadow text-center p-2" style=" width: 45%; margin-right: 2%;" >
+                <p class=" mb-0"><i class="fa-solid fa-phone"></i> Mob: +91 00000 00000 </p>
+                <p class="mb-0"><i class="fa-solid fa-phone"></i> Mob: +91 00000 00000 </p>
+                <p class="mb-0"><i class="fa-solid fa-phone"></i> Mob: +91 00000 00000 </p>
+            </div>
+            <div class="col-sm-6 border border shadow text-center p-2"style=" width: 45%; margin-left: 5%;">
+                <p class=" mb-0"><i class="fa-regular fa-envelope"></i> Email: demo@gmail.com</p>
+                <p class="mb-0"><i class="fa-regular fa-envelope"></i> Email: xyz@gmail.com</p>
+                <p class="mb-0"><i class="fa-regular fa-envelope"></i> Email: abcd@gmail.com </p>
+            </div>
+            <div class="col-sm-12 border border shadow text-center p-4 mt-2" style="margin-top: 10px; width:97%">
+                <p><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt-fill" viewBox="0 0 16 16">
+                <path d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"/>
+                </svg> Google Map </p>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3557.6768035253244!2d80.93991417465324!3d26.91375047664665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3999564cce90d0d3%3A0x4e9aad937bea71a!2sIET%20academic%20Block!5e0!3m2!1sen!2sin!4v1732304649916!5m2!1sen!2sin" width="100%" height="150" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div> 
+        </div>
+    </div>
+    <div class="col-sm-6">
+        <form method = "POST">
+            {% csrf_token %}
+            <div class="row py-2">
+                <div class="col-sm-12">
+                    <p>Enter Your Name</p>
+                    <input type="text" class="form-control border-dark raounded-0" name = "name"/>
+                </div>
+                <div class="col-sm-12">
+                    <p>Enter Your Email </p>
+                    <input type="text" class="form-control border-dark raounded-0" name = "email"/>
+                </div>
+                <div class="col-sm-12">
+                    <p>Enter Your Mobile Number </p>
+                    <input type="Number" class="form-control border-dark raounded-0" name = "contactno"/>
+                </div>
+                <div class="col-sm-12">
+                    <p>Enter Your  Enquiry </p>
+                    <textarea class="form-control border-dark raounded-0" name = "enqtxt"></textarea>
+                </div>
+                <input type="submit" value="Submit" class="btn  bg-success text-light my-2" style="width: 30%;text-align: center;margin: auto;">
+            </div>
+        </form>
+    </div>
+    </div>
+</div>
+
+{% endblock %}
